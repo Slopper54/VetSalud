@@ -4,6 +4,7 @@
 --
 -- Servidor: 127.0.0.1
 -- Tiempo de generación: 23-05-2025 a las 13:49:27
+
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
