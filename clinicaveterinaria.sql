@@ -31,7 +31,11 @@ USE clinicaveterinaria;
 --
 
 CREATE TABLE `cita` (
+<<<<<<< HEAD
   `id_cita` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `fecha` datetime NOT NULL,
   `motivo` varchar(255) DEFAULT NULL,
   `id_mascota` int(11) DEFAULT NULL,
@@ -42,7 +46,11 @@ CREATE TABLE `cita` (
 -- Volcado de datos para la tabla `cita`
 --
 
+<<<<<<< HEAD
 INSERT INTO `cita` (`id_cita`, `fecha`, `motivo`, `id_mascota`, `id_veterinario`) VALUES
+=======
+INSERT INTO `cita` (`id`, `fecha`, `motivo`, `id_mascota`, `id_veterinario`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, '2025-05-10 09:00:00', 'Vacunación anual', 1, 1),
 (2, '2025-05-11 10:30:00', 'Control dermatológico', 2, 3),
 (3, '2025-05-12 11:15:00', 'Chequeo general', 3, 2),
@@ -56,7 +64,11 @@ INSERT INTO `cita` (`id_cita`, `fecha`, `motivo`, `id_mascota`, `id_veterinario`
 --
 
 CREATE TABLE `dueno` (
+<<<<<<< HEAD
   `id_dueno` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `nombre` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL
@@ -66,7 +78,11 @@ CREATE TABLE `dueno` (
 -- Volcado de datos para la tabla `dueno`
 --
 
+<<<<<<< HEAD
 INSERT INTO `dueno` (`id_dueno`, `nombre`, `email`, `telefono`) VALUES
+=======
+INSERT INTO `dueno` (`id`, `nombre`, `email`, `telefono`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, 'Pepe Martínez', 'pepe.martinez@gmail.com', '600123456'),
 (2, 'Laura Gómez', 'laura.gomez@gmail.com', '689123456'),
 (3, 'Carlos Pérez', 'carlos.perez@gmail.com', '677891234'),
@@ -80,7 +96,11 @@ INSERT INTO `dueno` (`id_dueno`, `nombre`, `email`, `telefono`) VALUES
 --
 
 CREATE TABLE `factura` (
+<<<<<<< HEAD
   `id_factura` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `fecha_emision` date NOT NULL,
   `total` decimal(10,2) DEFAULT NULL,
   `metodo_pago` varchar(50) DEFAULT NULL,
@@ -91,7 +111,11 @@ CREATE TABLE `factura` (
 -- Volcado de datos para la tabla `factura`
 --
 
+<<<<<<< HEAD
 INSERT INTO `factura` (`id_factura`, `fecha_emision`, `total`, `metodo_pago`, `id_cita`) VALUES
+=======
+INSERT INTO `factura` (`id`, `fecha_emision`, `total`, `metodo_pago`, `id_cita`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, '2025-05-10', 45.00, 'Efectivo', 1),
 (2, '2025-05-11', 60.50, 'Tarjeta', 2),
 (3, '2025-05-12', 40.00, 'Transferencia', 3),
@@ -105,7 +129,11 @@ INSERT INTO `factura` (`id_factura`, `fecha_emision`, `total`, `metodo_pago`, `i
 --
 
 CREATE TABLE `historiaclinica` (
+<<<<<<< HEAD
   `id_historia` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `fecha` date NOT NULL,
   `resumen` text DEFAULT NULL,
   `id_mascota` int(11) DEFAULT NULL
@@ -115,7 +143,11 @@ CREATE TABLE `historiaclinica` (
 -- Volcado de datos para la tabla `historiaclinica`
 --
 
+<<<<<<< HEAD
 INSERT INTO `historiaclinica` (`id_historia`, `fecha`, `resumen`, `id_mascota`) VALUES
+=======
+INSERT INTO `historiaclinica` (`id`, `fecha`, `resumen`, `id_mascota`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, '2025-05-10', 'Revisión general sin hallazgos.', 1),
 (2, '2025-05-11', 'Dermatitis tratada con antibióticos.', 2),
 (3, '2025-05-12', 'Ligero sobrepeso, se recomienda dieta.', 3),
@@ -129,7 +161,11 @@ INSERT INTO `historiaclinica` (`id_historia`, `fecha`, `resumen`, `id_mascota`) 
 --
 
 CREATE TABLE `mascota` (
+<<<<<<< HEAD
   `id_mascota` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `nombre` varchar(100) NOT NULL,
   `especie` varchar(50) DEFAULT NULL,
   `raza` varchar(50) DEFAULT NULL,
@@ -141,7 +177,11 @@ CREATE TABLE `mascota` (
 -- Volcado de datos para la tabla `mascota`
 --
 
+<<<<<<< HEAD
 INSERT INTO `mascota` (`id_mascota`, `nombre`, `especie`, `raza`, `fecha_nacimiento`, `id_dueno`) VALUES
+=======
+INSERT INTO `mascota` (`id`, `nombre`, `especie`, `raza`, `fecha_nacimiento`, `id_dueno`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, 'Luna', 'Perro', 'Labrador', '2020-05-10', 1),
 (2, 'Milo', 'Gato', 'Persa', '2019-09-23', 2),
 (3, 'Rocky', 'Perro', 'Bulldog', '2021-01-15', 3),
@@ -155,7 +195,11 @@ INSERT INTO `mascota` (`id_mascota`, `nombre`, `especie`, `raza`, `fecha_nacimie
 --
 
 CREATE TABLE `tratamiento` (
+<<<<<<< HEAD
   `id_tratamiento` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `descripcion` text DEFAULT NULL,
   `medicamento` varchar(100) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
@@ -167,7 +211,11 @@ CREATE TABLE `tratamiento` (
 -- Volcado de datos para la tabla `tratamiento`
 --
 
+<<<<<<< HEAD
 INSERT INTO `tratamiento` (`id_tratamiento`, `descripcion`, `medicamento`, `fecha_inicio`, `fecha_fin`, `id_mascota`) VALUES
+=======
+INSERT INTO `tratamiento` (`id`, `descripcion`, `medicamento`, `fecha_inicio`, `fecha_fin`, `id_mascota`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, 'Tratamiento contra parásitos', 'Milbemax', '2025-05-10', '2025-05-15', 1),
 (2, 'Antibiótico por infección cutánea', 'Cefalexina', '2025-05-11', '2025-05-17', 2),
 (3, 'Desinflamatorio', 'Carprofeno', '2025-05-12', '2025-05-14', 3),
@@ -181,7 +229,11 @@ INSERT INTO `tratamiento` (`id_tratamiento`, `descripcion`, `medicamento`, `fech
 --
 
 CREATE TABLE `vacunacion` (
+<<<<<<< HEAD
   `id_vacunacion` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `tipo_vacuna` varchar(100) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `dosis` varchar(50) DEFAULT NULL,
@@ -192,7 +244,11 @@ CREATE TABLE `vacunacion` (
 -- Volcado de datos para la tabla `vacunacion`
 --
 
+<<<<<<< HEAD
 INSERT INTO `vacunacion` (`id_vacunacion`, `tipo_vacuna`, `fecha`, `dosis`, `id_mascota`) VALUES
+=======
+INSERT INTO `vacunacion` (`id`, `tipo_vacuna`, `fecha`, `dosis`, `id_mascota`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, 'Rabia', '2025-05-10', '1 mL', 1),
 (2, 'Triple felina', '2025-05-11', '0.5 mL', 2),
 (3, 'Parvovirus', '2025-05-12', '1 mL', 3),
@@ -206,7 +262,11 @@ INSERT INTO `vacunacion` (`id_vacunacion`, `tipo_vacuna`, `fecha`, `dosis`, `id_
 --
 
 CREATE TABLE `veterinario` (
+<<<<<<< HEAD
   `id_veterinario` int(11) NOT NULL,
+=======
+  `id` int(11) NOT NULL,
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   `nombre` varchar(100) NOT NULL,
   `especialidad` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL
@@ -216,7 +276,11 @@ CREATE TABLE `veterinario` (
 -- Volcado de datos para la tabla `veterinario`
 --
 
+<<<<<<< HEAD
 INSERT INTO `veterinario` (`id_veterinario`, `nombre`, `especialidad`, `email`) VALUES
+=======
+INSERT INTO `veterinario` (`id`, `nombre`, `especialidad`, `email`) VALUES
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 (1, 'Dr. Fernández', 'Medicina General', 'fernandez.vet@gmail.com'),
 (2, 'Dra. Ruiz', 'Cirugía', 'ruiz.cirugia@gmail.com'),
 (3, 'Dr. Gómez', 'Dermatología', 'gomez.derma@gmail.com'),
@@ -231,7 +295,11 @@ INSERT INTO `veterinario` (`id_veterinario`, `nombre`, `especialidad`, `email`) 
 -- Indices de la tabla `cita`
 --
 ALTER TABLE `cita`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_cita`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD KEY `id_mascota` (`id_mascota`),
   ADD KEY `id_veterinario` (`id_veterinario`);
 
@@ -239,48 +307,76 @@ ALTER TABLE `cita`
 -- Indices de la tabla `dueno`
 --
 ALTER TABLE `dueno`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_dueno`);
+=======
+  ADD PRIMARY KEY (`id`);
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_factura`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD UNIQUE KEY `id_cita` (`id_cita`);
 
 --
 -- Indices de la tabla `historiaclinica`
 --
 ALTER TABLE `historiaclinica`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_historia`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD KEY `id_mascota` (`id_mascota`);
 
 --
 -- Indices de la tabla `mascota`
 --
 ALTER TABLE `mascota`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_mascota`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD KEY `id_dueno` (`id_dueno`);
 
 --
 -- Indices de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_tratamiento`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD KEY `id_mascota` (`id_mascota`);
 
 --
 -- Indices de la tabla `vacunacion`
 --
 ALTER TABLE `vacunacion`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_vacunacion`),
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
   ADD KEY `id_mascota` (`id_mascota`);
 
 --
 -- Indices de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_veterinario`);
+=======
+  ADD PRIMARY KEY (`id`);
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -290,49 +386,81 @@ ALTER TABLE `veterinario`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
+<<<<<<< HEAD
   MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `dueno`
 --
 ALTER TABLE `dueno`
+<<<<<<< HEAD
   MODIFY `id_dueno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
+<<<<<<< HEAD
   MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `historiaclinica`
 --
 ALTER TABLE `historiaclinica`
+<<<<<<< HEAD
   MODIFY `id_historia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
+<<<<<<< HEAD
   MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
+<<<<<<< HEAD
   MODIFY `id_tratamiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `vacunacion`
 --
 ALTER TABLE `vacunacion`
+<<<<<<< HEAD
   MODIFY `id_vacunacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
+<<<<<<< HEAD
   MODIFY `id_veterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Restricciones para tablas volcadas
@@ -342,40 +470,69 @@ ALTER TABLE `veterinario`
 -- Filtros para la tabla `cita`
 --
 ALTER TABLE `cita`
+<<<<<<< HEAD
   ADD CONSTRAINT `cita_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id_mascota`) ON DELETE CASCADE,
   ADD CONSTRAINT `cita_ibfk_2` FOREIGN KEY (`id_veterinario`) REFERENCES `veterinario` (`id_veterinario`) ON DELETE SET NULL;
+=======
+  ADD CONSTRAINT `cita_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cita_ibfk_2` FOREIGN KEY (`id_veterinario`) REFERENCES `veterinario` (`id`) ON DELETE SET NULL;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
+<<<<<<< HEAD
   ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `cita` (`id_cita`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `cita` (`id`) ON DELETE CASCADE;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Filtros para la tabla `historiaclinica`
 --
 ALTER TABLE `historiaclinica`
+<<<<<<< HEAD
   ADD CONSTRAINT `historiaclinica_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id_mascota`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `historiaclinica_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id`) ON DELETE CASCADE;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Filtros para la tabla `mascota`
 --
 ALTER TABLE `mascota`
+<<<<<<< HEAD
   ADD CONSTRAINT `mascota_ibfk_1` FOREIGN KEY (`id_dueno`) REFERENCES `dueno` (`id_dueno`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `mascota_ibfk_1` FOREIGN KEY (`id_dueno`) REFERENCES `dueno` (`id`) ON DELETE CASCADE;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Filtros para la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
+<<<<<<< HEAD
   ADD CONSTRAINT `tratamiento_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id_mascota`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `tratamiento_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id`) ON DELETE CASCADE;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 
 --
 -- Filtros para la tabla `vacunacion`
 --
 ALTER TABLE `vacunacion`
+<<<<<<< HEAD
   ADD CONSTRAINT `vacunacion_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id_mascota`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `vacunacion_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`id`) ON DELETE CASCADE;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+<<<<<<< HEAD
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+>>>>>>> 82dc77c (Solucionado el problema de los Rest)
