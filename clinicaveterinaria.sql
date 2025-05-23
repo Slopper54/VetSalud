@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2025 a las 18:18:27
+-- Tiempo de generación: 23-05-2025 a las 13:49:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -11,7 +11,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+DROP DATABASE IF EXISTS clinicaveterinaria;
+CREATE DATABASE clinicaveterinaria;
+USE clinicaveterinaria;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -35,6 +37,17 @@ CREATE TABLE `cita` (
   `id_veterinario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `cita`
+--
+
+INSERT INTO `cita` (`id_cita`, `fecha`, `motivo`, `id_mascota`, `id_veterinario`) VALUES
+(1, '2025-05-10 09:00:00', 'Vacunación anual', 1, 1),
+(2, '2025-05-11 10:30:00', 'Control dermatológico', 2, 3),
+(3, '2025-05-12 11:15:00', 'Chequeo general', 3, 2),
+(4, '2025-05-13 16:00:00', 'Problema dental', 4, 4),
+(5, '2025-05-14 13:45:00', 'Control de peso', 5, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +60,17 @@ CREATE TABLE `dueno` (
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dueno`
+--
+
+INSERT INTO `dueno` (`id_dueno`, `nombre`, `email`, `telefono`) VALUES
+(1, 'Pepe Martínez', 'pepe.martinez@gmail.com', '600123456'),
+(2, 'Laura Gómez', 'laura.gomez@gmail.com', '689123456'),
+(3, 'Carlos Pérez', 'carlos.perez@gmail.com', '677891234'),
+(4, 'Ana Martínez', 'ana.martinez@gmail.com', '666987321'),
+(5, 'Jorge Rivera', 'jorge.rivera@gmail.com', '695456789');
 
 -- --------------------------------------------------------
 
@@ -62,6 +86,17 @@ CREATE TABLE `factura` (
   `id_cita` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`id_factura`, `fecha_emision`, `total`, `metodo_pago`, `id_cita`) VALUES
+(1, '2025-05-10', 45.00, 'Efectivo', 1),
+(2, '2025-05-11', 60.50, 'Tarjeta', 2),
+(3, '2025-05-12', 40.00, 'Transferencia', 3),
+(4, '2025-05-13', 85.75, 'Tarjeta', 4),
+(5, '2025-05-14', 35.00, 'Efectivo', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +109,17 @@ CREATE TABLE `historiaclinica` (
   `resumen` text DEFAULT NULL,
   `id_mascota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `historiaclinica`
+--
+
+INSERT INTO `historiaclinica` (`id_historia`, `fecha`, `resumen`, `id_mascota`) VALUES
+(1, '2025-05-10', 'Revisión general sin hallazgos.', 1),
+(2, '2025-05-11', 'Dermatitis tratada con antibióticos.', 2),
+(3, '2025-05-12', 'Ligero sobrepeso, se recomienda dieta.', 3),
+(4, '2025-05-13', 'Extracción dental realizada sin complicaciones.', 4),
+(5, '2025-05-14', 'Buen estado general. Se aplicó vacuna.', 5);
 
 -- --------------------------------------------------------
 
@@ -90,6 +136,17 @@ CREATE TABLE `mascota` (
   `id_dueno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `mascota`
+--
+
+INSERT INTO `mascota` (`id_mascota`, `nombre`, `especie`, `raza`, `fecha_nacimiento`, `id_dueno`) VALUES
+(1, 'Luna', 'Perro', 'Labrador', '2020-05-10', 1),
+(2, 'Milo', 'Gato', 'Persa', '2019-09-23', 2),
+(3, 'Rocky', 'Perro', 'Bulldog', '2021-01-15', 3),
+(4, 'Nina', 'Gato', 'Siamés', '2018-03-04', 4),
+(5, 'Toby', 'Conejo', 'Enano', '2022-07-30', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +162,17 @@ CREATE TABLE `tratamiento` (
   `id_mascota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `tratamiento`
+--
+
+INSERT INTO `tratamiento` (`id_tratamiento`, `descripcion`, `medicamento`, `fecha_inicio`, `fecha_fin`, `id_mascota`) VALUES
+(1, 'Tratamiento contra parásitos', 'Milbemax', '2025-05-10', '2025-05-15', 1),
+(2, 'Antibiótico por infección cutánea', 'Cefalexina', '2025-05-11', '2025-05-17', 2),
+(3, 'Desinflamatorio', 'Carprofeno', '2025-05-12', '2025-05-14', 3),
+(4, 'Anestesia local pre-extracción', 'Isofluorano', '2025-05-13', '2025-05-13', 4),
+(5, 'Vitaminas post-esterilización', 'Complejo B', '2025-05-14', '2025-05-20', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +187,17 @@ CREATE TABLE `vacunacion` (
   `id_mascota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `vacunacion`
+--
+
+INSERT INTO `vacunacion` (`id_vacunacion`, `tipo_vacuna`, `fecha`, `dosis`, `id_mascota`) VALUES
+(1, 'Rabia', '2025-05-10', '1 mL', 1),
+(2, 'Triple felina', '2025-05-11', '0.5 mL', 2),
+(3, 'Parvovirus', '2025-05-12', '1 mL', 3),
+(4, 'Leucemia felina', '2025-05-13', '0.5 mL', 4),
+(5, 'Mixomatosis', '2025-05-14', '0.3 mL', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +210,17 @@ CREATE TABLE `veterinario` (
   `especialidad` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `veterinario`
+--
+
+INSERT INTO `veterinario` (`id_veterinario`, `nombre`, `especialidad`, `email`) VALUES
+(1, 'Dr. Fernández', 'Medicina General', 'fernandez.vet@gmail.com'),
+(2, 'Dra. Ruiz', 'Cirugía', 'ruiz.cirugia@gmail.com'),
+(3, 'Dr. Gómez', 'Dermatología', 'gomez.derma@gmail.com'),
+(4, 'Dra. Torres', 'Odontología', 'torres.odon@gmail.com'),
+(5, 'Dr. Castillo', 'Cardiología', 'castillo.cardio@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -199,49 +289,49 @@ ALTER TABLE `veterinario`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `dueno`
 --
 ALTER TABLE `dueno`
-  MODIFY `id_dueno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dueno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `historiaclinica`
 --
 ALTER TABLE `historiaclinica`
-  MODIFY `id_historia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_historia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
-  MODIFY `id_tratamiento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tratamiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunacion`
 --
 ALTER TABLE `vacunacion`
-  MODIFY `id_vacunacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vacunacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
-  MODIFY `id_veterinario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_veterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
