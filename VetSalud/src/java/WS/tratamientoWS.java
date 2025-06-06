@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,19 +9,22 @@ package WS;
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+import entidad.Tratamiento;
 
 /**
- * Jersey REST client generated for REST resource:TratamientoFacadeREST
- * [entidades.tratamiento]<br>
+ * Jersey REST client generado para REST resource:TratamientoFacadeREST
+ * [entidades.tratamiento]
+ * 
  * USAGE:
  * <pre>
- *        tratamientoWS client = new tratamientoWS();
- *        Object response = client.XXX(...);
- *        // do whatever with response
- *        client.close();
+ *     tratamientoWS client = new tratamientoWS();
+ *     Object response = client.XXX(...);
+ *     // do whatever with response
+ *     client.close();
  * </pre>
  *
- * @author danie
+ * @author 
  */
 public class tratamientoWS {
 
@@ -40,11 +44,16 @@ public class tratamientoWS {
     }
 
     public void edit_XML(Object requestEntity, String id) throws ClientErrorException {
-        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
+        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id}))
+                 .request(javax.ws.rs.core.MediaType.APPLICATION_XML)
+                 .put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
     public void edit_JSON(Object requestEntity, String id) throws ClientErrorException {
-        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id}))
+                 .request(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+                 .put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
     public <T> T find_XML(Class<T> responseType, String id) throws ClientErrorException {
@@ -72,14 +81,16 @@ public class tratamientoWS {
     }
 
     public void create_XML(Object requestEntity) throws ClientErrorException {
-        webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
+        webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML)
+                 .post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
     public void create_JSON(Object requestEntity) throws ClientErrorException {
-        webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+        webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+                 .post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
-    public <T> T findAll_XML(Class<T> responseType) throws ClientErrorException {
+    public <T> T findAll_XML(GenericType<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
@@ -96,5 +107,8 @@ public class tratamientoWS {
     public void close() {
         client.close();
     }
-    
+
 }
+
+    
+

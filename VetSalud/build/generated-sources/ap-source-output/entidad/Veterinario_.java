@@ -1,16 +1,12 @@
-package entidades;
+package entidad;
 
-import entidades.Cita;
+import entidad.Cita;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-<<<<<<< HEAD
-@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2025-06-06T14:09:13")
-=======
-@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2025-06-06T10:25:05")
->>>>>>> origin/main
+@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2025-06-06T13:42:13")
 @StaticMetamodel(Veterinario.class)
 public class Veterinario_ { 
 
