@@ -3,54 +3,148 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="default" namespace="/" extends="struts-default">
 
-        <!-- Página por defecto: redirige a listar -->
-        <action name="">
-            <result>/listarCitas.jsp</result>
-        </action>
-
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        
         <!-- Acción para crear una cita -->
-        <action name="crearCita" class="acciones.CitaAction" method="crear">
+        <action name="crearCita" class="actions.CitaAction" method="crear">
             <result name="success">/listarCitas.jsp</result>
             <result name="input">/crearCita.jsp</result>
         </action>
 
         <!-- Acción para editar una cita -->
-        <action name="editarCita" class="acciones.CitaAction" method="editar">
+        <action name="editarCita" class="actions.CitaAction" method="editar">
             <result name="success">/listarCitas.jsp</result>
             <result name="input">/editarCita.jsp</result>
         </action>
 
         <!-- Acción para eliminar una cita -->
-        <action name="eliminarCita" class="acciones.CitaAction" method="eliminar">
+        <action name="eliminarCita" class="actions.CitaAction" method="eliminar">
             <result name="success">/listarCitas.jsp</result>
         </action>
 
         <!-- Acción para listar todas las citas -->
-        <action name="listarCitas" class="acciones.CitaAction" method="listar">
+        <action name="listarCitas" class="actions.CitaAction" method="listar">
             <result>/listarCitas.jsp</result>
         </action>
         
-        <!-- Acciones Dueno -->
-        <action name="crearDueno" class="acciones.DuenoAction" method="crear">
+        <!-- actions Dueno -->
+        <action name="crearDueno" class="actions.DuenoAction" method="crear">
             <result name="success">/listarDuenos.jsp</result>
             <result name="input">/crearDueno.jsp</result>
         </action>
 
-        <action name="editarDueno" class="acciones.DuenoAction" method="editar">
+        <action name="editarDueno" class="actions.DuenoAction" method="editar">
             <result name="success">/listarDuenos.jsp</result>
             <result name="input">/editarDueno.jsp</result>
         </action>
 
-        <action name="eliminarDueno" class="acciones.DuenoAction" method="eliminar">
+        <action name="eliminarDueno" class="actions.DuenoAction" method="eliminar">
             <result name="success">/listarDuenos.jsp</result>
         </action>
 
-        <action name="listarDuenos" class="acciones.DuenoAction" method="listar">
+        <action name="listarDuenos" class="actions.DuenoAction" method="listar">
             <result>/listarDuenos.jsp</result>
+        </action>
+        
+        
+        <action name="listarHistoriasClinicas" class="actions.HistoriaClinicaAction" method="listarHistoriasClinicas">
+            <result name="success">/listarHistorias.jsp</result>
+        </action>
+        <action name="obtenerHistoriaClinica" class="actions.HistoriaClinicaAction" method="obtenerHistoriaClinica">
+            <result name="success">/datosHistoriaClinica.jsp</result>
+        </action>
+        <action name="crearHistoriaClinica" class="actions.HistoriaClinicaAction" method="crearHistoriaClinica">
+            <result name="success">/prueba.jsp</result>
+        </action>
+        <action name="borrarHistoriaClinica" class="actions.HistoriaClinicaAction" method="eliminarHistoriaClinica">
+            <result name="success">/prueba.jsp</result>
+        </action>
+        <action name="actualizarHistoriaClinica" class="actions.HistoriaClinicaAction" method="actualizarHistoriaClinica">
+            <result name="success">/prueba.jsp</result>
+        </action>
+        
+        
+        
+        <action name="listarFacturas" class="actions.FacturaAction" method="listarFacturas">
+            <result name="success">/listarFacturas.jsp</result>
+        </action>
+        <action name="obtenerFactura" class="actions.FacturaAction" method="obtenerFactura">
+            <result name="success">/datosFactura.jsp</result>
+        </action>
+        <action name="crearFactura" class="actions.FacturaAction" method="crearFactura">
+            <result name="success">/prueba.jsp</result>
+            <result name="error">/prueba.jsp</result>
+        </action>
+        <action name="borrarFactura" class="actions.FacturaAction" method="eliminarFactura">
+            <result name="success">/prueba.jsp</result>
+        </action>
+        <action name="actualizarFactura" class="actions.FacturaAction" method="actualizarFactura">
+            <result name="success">/prueba.jsp</result>
+            <result name="error">/prueba.jsp</result>
+        </action>
+        <action name="inicio">
+            <result name="success">prueba.jsp</result>
+        </action>
+        
+        
+        
+        <action name="createMascota" class="actions.MascotaAction" method="create">
+            <result name="success">/exito.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="actualizarMascota" class="actions.MascotaAction" method="upgrade">
+            <result name="success">/exito.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="eliminarMascota" class="actions.MascotaAction" method="delete">
+            <result name="success">/exito.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="listMascota" class="actions.MascotaAction" method="list">
+            <result name="success">/Mascota.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="filtrarMascota" class="actions.MascotaAction" method="filter">
+            <result name="success">/Mascota.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        
+        
+        <action name="createVeterinario" class="actions.VeterinarioAction" method="create">
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="actualizarVeterinario" class="actions.VeterinarioAction" method="upgrade">
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="eliminarVeterinario" class="actions.VeterinarioAction" method="delete">
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="listVeterinario" class="actions.VeterinarioAction" method="list">
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="filtrarVeterinario" class="actions.VeterinarioAction" method="filter">
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
+
         </action>
 
     </package>
+    
+    
 </struts>
 

@@ -81,6 +81,14 @@ public class Dueno implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     public String getNombre() {
         return nombre;
@@ -113,14 +121,6 @@ public class Dueno implements Serializable {
 
     public void setMascotaCollection(Collection<Mascota> mascotaCollection) {
         this.mascotaCollection = mascotaCollection;
-    }
-    
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 
     @Override

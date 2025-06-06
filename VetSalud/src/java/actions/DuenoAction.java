@@ -1,4 +1,4 @@
-package acciones;
+package actions;
 
 import WS.duenoWS;
 import com.opensymphony.xwork2.ActionSupport;

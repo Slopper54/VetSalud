@@ -1,4 +1,4 @@
-package acciones;
+package actions;
 
 import WS.citaWS;
 import com.opensymphony.xwork2.ActionSupport;

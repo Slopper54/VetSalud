@@ -35,6 +35,12 @@ public class duenoWS {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("entidades.dueno");
     }
+    
+    public <T> T findbyDNI(GenericType<T> responseType, String dni) throws ClientErrorException {
+        WebTarget resource = webTarget.path("dni");
+        resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{dni}));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
 
     public String countREST() throws ClientErrorException {
         WebTarget resource = webTarget;
@@ -61,7 +67,7 @@ public class duenoWS {
     }
 
     public <T> T find_JSON(Class<T> responseType, String id) throws ClientErrorException {
-        WebTarget resource = webTarget;
+        WebTarget resource = webTarget.path("id");
         resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{id}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
