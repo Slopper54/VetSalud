@@ -65,9 +65,10 @@ public class Veterinario implements Serializable {
         this.id = id;
     }
 
-    public Veterinario(Integer id, String nombre) {
-        this.id = id;
+    public Veterinario(String nombre, String especialidad, String email) {
         this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.email = email;
     }
 
     public Integer getId() {

@@ -14,6 +14,16 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
+<<<<<<< HEAD
         <welcome-file>index.html</welcome-file>
+=======
+<<<<<<< HEAD
+        <welcome-file>index.html</welcome-file>
+=======
+
+        <welcome-file>crearMascota.jsp</welcome-file>
+
+>>>>>>> origin/main
+>>>>>>> origin/main
     </welcome-file-list>
 </web-app>

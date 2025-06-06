@@ -1,3 +1,4 @@
+
 package WS;
 
 import javax.ws.rs.ClientErrorException;
@@ -102,3 +103,4 @@ public class vacunacionWS {
         client.close();
     }
 }
+

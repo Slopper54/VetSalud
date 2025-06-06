@@ -90,7 +90,7 @@ public class VacunacionAction extends ActionSupport {
         }
 
         if (idMascota > 0) {
-            Mascota m = mascotaWS.find_XML(Mascota.class, String.valueOf(idMascota));
+            Mascota m = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(idMascota));
             if (m != null) {
                 vacunacion.setIdMascota(m);
             }
@@ -129,7 +129,7 @@ public class VacunacionAction extends ActionSupport {
         }
 
         if (idMascota > 0) {
-            Mascota m = mascotaWS.find_XML(Mascota.class, String.valueOf(idMascota));
+            Mascota m = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(idMascota));
             if (m != null) {
                 vacunacion.setIdMascota(m);
             }

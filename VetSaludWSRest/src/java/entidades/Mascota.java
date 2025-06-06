@@ -82,9 +82,12 @@ public class Mascota implements Serializable {
         this.id = id;
     }
 
-    public Mascota(Integer id, String nombre) {
-        this.id = id;
+    public Mascota(String nombre, String raza, String especie, Date fechaNacimiento, Dueno idDueno) {
         this.nombre = nombre;
+        this.raza = raza;
+        this.especie = especie;
+        this.fechaNacimiento = fechaNacimiento;
+        this.idDueno = idDueno;
     }
 
     public Integer getId() {

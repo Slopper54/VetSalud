@@ -9,6 +9,7 @@ import entidades.Dueno;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -19,6 +20,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -56,11 +58,30 @@ public class DuenoFacadeREST extends AbstractFacade<Dueno> {
     }
 
     @GET
-    @Path("{id}")
+    @Path("id/{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Dueno find(@PathParam("id") Integer id) {
         return super.find(id);
     }
+    
+    @GET
+    @Path("dni/{dni}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Response findbyDNI(@PathParam("dni") String dni) {
+        try {
+            Dueno dueno = em
+                .createQuery("SELECT d FROM Dueno d WHERE d.dni = :dni", Dueno.class)
+                .setParameter("dni", dni)
+                .getSingleResult();
+
+            return Response.ok(dueno).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                           .entity("Dueño no encontrado: " + dni)
+                           .build();
+        }
+    }
+
 
     @GET
     @Override

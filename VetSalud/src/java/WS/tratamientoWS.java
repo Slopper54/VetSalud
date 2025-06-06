@@ -1,3 +1,9 @@
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package WS;
 
 import javax.ws.rs.ClientErrorException;
@@ -47,6 +53,7 @@ public class tratamientoWS {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id}))
                  .request(javax.ws.rs.core.MediaType.APPLICATION_JSON)
                  .put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
     public <T> T find_XML(Class<T> responseType, String id) throws ClientErrorException {
@@ -94,11 +101,14 @@ public class tratamientoWS {
     }
 
     public void remove(String id) throws ClientErrorException {
-        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id}))
-                 .request().delete();
+        webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request().delete();
     }
 
     public void close() {
         client.close();
     }
+
 }
+
+    
+
