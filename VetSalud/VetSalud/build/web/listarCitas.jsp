@@ -35,6 +35,12 @@
             </s:iterator>
         </table>
         <a href="crearCita.jsp">Crear nueva cita</a>
+        
+        <h3>Buscar Cita por ID</h3>
+        <s:form action="buscarCita" method="post">
+            <s:textfield name="id" label="ID de la cita"/>
+            <s:submit value="Buscar"/>
+        </s:form>
     </body>
 </html>
 

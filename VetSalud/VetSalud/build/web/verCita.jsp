@@ -1,21 +1,21 @@
-<%-- 
-    Document   : verCita
-    Created on : 03-jun-2025, 20:08:32
-    Author     : jorda
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-    <head><title>Ver Cita</title></head>
-    <body>
-        <h2>Detalles de la Cita</h2>
-        <p>ID: <s:property value="cita.id"/></p>
-        <p>Fecha: <s:property value="cita.fecha"/></p>
-        <p>Motivo: <s:property value="cita.motivo"/></p>
-        <p>Mascota: <s:property value="cita.idMascota.id"/></p>
-        <p>Veterinario: <s:property value="cita.idVeterinario.id"/></p>
-        <a href="listarCitas.action">Volver al listado</a>
-    </body>
+<head><title>Cita encontrada</title></head>
+<body>
+    <h2>Cita encontrada</h2>
+
+    <s:if test="cita != null">
+        <table border="1">
+            <tr><th>ID</th><td><s:property value="cita.id"/></td></tr>
+            <tr><th>Nombre</th><td><s:property value="cita.fecha"/></td></tr>
+            <tr><th>Motivo</th><td><s:property value="cita.motivo"/></td></tr>
+            <tr><th>Id mascota</th><td><s:property value="cita.idMascota.id"/></td></tr>
+            <tr><th>Id veterinario</th><td><s:property value="cita.idVeterinario.id"/></td></tr>
+        </table>
+    </s:if>
+
+    <br><a href="listarCitas.action">Volver a la lista</a>
+</body>
 </html>
 

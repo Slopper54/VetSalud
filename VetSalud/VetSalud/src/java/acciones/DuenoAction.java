@@ -14,6 +14,7 @@ public class DuenoAction extends ActionSupport {
     private String telefono;
     private String dni;
     private List<Dueno> listaDuenos;
+    private Dueno dueno;
 
     // -------------------
     // MÉTODO CREAR
@@ -95,10 +96,30 @@ public class DuenoAction extends ActionSupport {
             ws.close();
         }
     }
+    
+    public String buscarDueno() {
+        duenoWS ws = new duenoWS();
+        try {
+            dueno = ws.findbyDNI(Dueno.class, dni);
+            if (dueno != null) {
+                return SUCCESS;
+            } else {
+                addActionError("No se encontró el dueño con DNI: " + dni);
+                return ERROR;
+            }
+        } catch (Exception e) {
+            return ERROR;
+        } finally {
+            ws.close();
+        }
+    }
 
     // -------------------
     // GETTERS y SETTERS
     // -------------------
+    public Dueno getDueno() { return dueno; }
+    public void setDueno(Dueno dueno) { this.dueno = dueno; }
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

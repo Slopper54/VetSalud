@@ -32,6 +32,12 @@
             <result>/listarCitas.jsp</result>
         </action>
         
+        <!-- Acción para buscar una cita -->
+        <action name="buscarCita" class="acciones.CitaAction" method="buscar">
+                <result name="success">/verCita.jsp</result>
+            <result name="error">/listarCitas.jsp</result>
+        </action>
+        
         <!-- Acciones Dueno -->
         <action name="crearDueno" class="acciones.DuenoAction" method="crear">
             <result name="success">/listarDuenos.jsp</result>
@@ -50,6 +56,12 @@
         <action name="listarDuenos" class="acciones.DuenoAction" method="listar">
             <result>/listarDuenos.jsp</result>
         </action>
+        
+        <action name="buscarDueno" class="acciones.DuenoAction" method="buscarDueno">
+            <result name="success">/verDueno.jsp</result>
+            <result name="error">/listaDuenos.jsp</result>
+        </action>
+
 
     </package>
 </struts>

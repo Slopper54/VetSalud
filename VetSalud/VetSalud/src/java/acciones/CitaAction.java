@@ -18,6 +18,7 @@ public class CitaAction extends ActionSupport {
     private int idMascota;
     private int idVeterinario;
     private List<Cita> listaCitas;
+    private Cita cita;
 
     // -------------------
     // MÉTODO CREAR
@@ -105,16 +106,31 @@ public class CitaAction extends ActionSupport {
             ws.close();
         }
     }
+    
+    public String buscar() {
+        citaWS ws = new citaWS();
+        try {
+            cita = ws.find_XML(Cita.class, String.valueOf(id));
+            return SUCCESS;
+        } catch (Exception e) {
+            addActionError("No se encontró la cita con ID: " + id);
+            return ERROR;
+        } finally {
+            ws.close();
+        }
+    }
 
     // -------------------
     // GETTERS y SETTERS
     // -------------------
+    public void setCita(Cita cita) { this.cita = cita; }
     public void setId(int id) { this.id = id; }
     public void setFecha(String fecha) { this.fecha = fecha; }
     public void setMotivo(String motivo) { this.motivo = motivo; }
     public void setIdMascota(int idMascota) { this.idMascota = idMascota; }
     public void setIdVeterinario(int idVeterinario) { this.idVeterinario = idVeterinario; }
 
+    public Cita getCita() { return this.cita; }
     public int getId() { return id; }
     public String getFecha() { return fecha; }
     public String getMotivo() { return motivo; }
