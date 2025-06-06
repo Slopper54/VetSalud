@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +19,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -60,6 +62,54 @@ public class VeterinarioFacadeREST extends AbstractFacade<Veterinario> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Veterinario find(@PathParam("id") Integer id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("filtro")
+    @Produces(MediaType.APPLICATION_XML)
+    public List<Veterinario> filtrar(@QueryParam("id") Integer id, @QueryParam("nombre") String nombre, @QueryParam("especialidad") String especialidad, @QueryParam("email") String email) {
+
+        String jpql = "SELECT v FROM Veterinario v WHERE 1=1";
+        int comprobante = 0;
+
+        if (id != null) {
+            jpql += " AND v.id = :id";
+            comprobante = 1;
+        }
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            jpql += " AND v.nombre = :nombre";
+            comprobante = 1;
+        }
+        if (especialidad != null && !especialidad.trim().isEmpty()) {
+            jpql += " AND v.especialidad = :especialidad";
+            comprobante = 1;
+        }
+
+        if (email != null && !email.trim().isEmpty()) {
+            jpql += " AND v.email = :email";
+            comprobante = 1;
+        }
+
+        if (comprobante == 0) {
+            return findAll();
+        }
+
+        TypedQuery<Veterinario> query = em.createQuery(jpql, Veterinario.class);
+
+        if (id != null) {
+            query.setParameter("id", id);
+        }
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            query.setParameter("nombre", nombre);
+        }
+        if (especialidad != null && !especialidad.trim().isEmpty()) {
+            query.setParameter("especialidad", especialidad);
+        }
+        if (email != null && !email.trim().isEmpty()) {
+            query.setParameter("email", email);
+        }
+
+        return query.getResultList();
     }
 
     @GET

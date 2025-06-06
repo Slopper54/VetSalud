@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Dueno.findById", query = "SELECT d FROM Dueno d WHERE d.id = :id")
     , @NamedQuery(name = "Dueno.findByNombre", query = "SELECT d FROM Dueno d WHERE d.nombre = :nombre")
     , @NamedQuery(name = "Dueno.findByEmail", query = "SELECT d FROM Dueno d WHERE d.email = :email")
-    , @NamedQuery(name = "Dueno.findByTelefono", query = "SELECT d FROM Dueno d WHERE d.telefono = :telefono")})
+    , @NamedQuery(name = "Dueno.findByTelefono", query = "SELECT d FROM Dueno d WHERE d.telefono = :telefono")
+    , @NamedQuery(name = "Dueno.findByDni", query = "SELECT d FROM Dueno d WHERE d.dni = :dni")})
 public class Dueno implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,6 +56,9 @@ public class Dueno implements Serializable {
     @Size(max = 20)
     @Column(name = "telefono")
     private String telefono;
+    @Size(max = 20)
+    @Column(name = "DNI")
+    private String dni;
     @OneToMany(mappedBy = "idDueno")
     private Collection<Mascota> mascotaCollection;
 
@@ -76,6 +80,14 @@ public class Dueno implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+    
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
