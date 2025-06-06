@@ -24,6 +24,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -97,7 +98,7 @@ public class Cita implements Serializable {
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
-
+    @XmlTransient
     public Factura getFactura() {
         return factura;
     }
