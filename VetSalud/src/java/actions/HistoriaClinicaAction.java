@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acciones;
+package actions;
 
 import WS.historiaclinicaWS;
 import WS.mascotaWS;
@@ -79,7 +79,7 @@ public class HistoriaClinicaAction extends ActionSupport {
         if (resumen != null && !resumen.isEmpty()) {
             historiaClinica.setResumen(resumen);
         }
-        idMascota = mascotaWS.find_XML(Mascota.class, String.valueOf(identificadorMascota));
+        idMascota = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(identificadorMascota));
         if (idMascota != null) {
             historiaClinica.setIdMascota(idMascota);
         }
@@ -109,7 +109,7 @@ public class HistoriaClinicaAction extends ActionSupport {
         }
 
         if (identificadorMascota != 0) {
-            idMascota = mascotaWS.find_XML(Mascota.class, String.valueOf(identificadorMascota));
+            idMascota = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(identificadorMascota));
             historiaClinica.setIdMascota(idMascota);
         }
 

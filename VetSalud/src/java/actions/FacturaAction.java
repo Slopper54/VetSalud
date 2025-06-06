@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acciones;
+package actions;
 
 import WS.citaWS;
 import WS.facturaWS;
