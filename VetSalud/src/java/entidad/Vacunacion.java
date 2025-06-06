@@ -128,5 +128,4 @@ public class Vacunacion implements Serializable {
     public String toString() {
         return "entidad.Vacunacion[ id=" + id + " ]";
     }
-    
 }

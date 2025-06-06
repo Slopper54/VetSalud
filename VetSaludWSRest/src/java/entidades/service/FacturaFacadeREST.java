@@ -5,6 +5,7 @@
  */
 package entidades.service;
 
+import entidades.Cita;
 import entidades.Factura;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -56,10 +57,19 @@ public class FacturaFacadeREST extends AbstractFacade<Factura> {
     }
 
     @GET
-    @Path("{id}")
+    @Path("id/{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Factura find(@PathParam("id") Integer id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("idCita/{idCita}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Factura findByIdCita(@PathParam("idCita") Integer idCita){
+        Cita c = em.find(Cita.class, idCita);
+        Factura f = em.createQuery("SELECT f FROM Factura f WHERE f.idCita = :idCita", Factura.class).setParameter("idCita", c).getSingleResult();
+        return f;
     }
 
     @GET

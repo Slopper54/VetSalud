@@ -1,0 +1,109 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package WS;
+
+import java.text.MessageFormat;
+import javax.ws.rs.ClientErrorException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+
+public class historiaclinicaWS {
+   private WebTarget webTarget;
+   private Client client = ClientBuilder.newClient();
+   private static final String BASE_URI = "http://localhost:8080/VetSaludWSRest/webresources";
+
+   public historiaclinicaWS() {
+      this.webTarget = this.client.target("http://localhost:8080/VetSaludWSRest/webresources").path("entidades.historiaclinica");
+   }
+
+   public String countREST() throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path("count");
+      return (String)resource.request(new String[]{"text/plain"}).get(String.class);
+   }
+
+   public void edit_XML(Object requestEntity, String id) throws ClientErrorException {
+      this.webTarget.path(MessageFormat.format("{0}", id)).request(new String[]{"application/xml"}).put(Entity.entity(requestEntity, "application/xml"));
+   }
+
+   public void edit_JSON(Object requestEntity, String id) throws ClientErrorException {
+      this.webTarget.path(MessageFormat.format("{0}", id)).request(new String[]{"application/json"}).put(Entity.entity(requestEntity, "application/json"));
+   }
+
+   public void edit_TEXT(Object requestEntity, String id) throws ClientErrorException {
+      this.webTarget.path(MessageFormat.format("{0}", id)).request(new String[]{"text/plain"}).put(Entity.entity(requestEntity, "text/plain"));
+   }
+
+   public <T> T find_XML(Class<T> responseType, String id) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}", id));
+      return resource.request(new String[]{"application/xml"}).get(responseType);
+   }
+
+   public <T> T find_JSON(Class<T> responseType, String id) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}", id));
+      return resource.request(new String[]{"application/json"}).get(responseType);
+   }
+
+   public <T> T find_TEXT(Class<T> responseType, String id) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}", id));
+      return resource.request(new String[]{"text/plain"}).get(responseType);
+   }
+
+   public <T> T findRange_XML(Class<T> responseType, String from, String to) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}/{1}", from, to));
+      return resource.request(new String[]{"application/xml"}).get(responseType);
+   }
+
+   public <T> T findRange_JSON(Class<T> responseType, String from, String to) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}/{1}", from, to));
+      return resource.request(new String[]{"application/json"}).get(responseType);
+   }
+
+   public <T> T findRange_TEXT(Class<T> responseType, String from, String to) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      resource = resource.path(MessageFormat.format("{0}/{1}", from, to));
+      return resource.request(new String[]{"text/plain"}).get(responseType);
+   }
+
+   public void create_XML(Object requestEntity) throws ClientErrorException {
+      this.webTarget.request(new String[]{"application/xml"}).post(Entity.entity(requestEntity, "application/xml"));
+   }
+
+   public void create_JSON(Object requestEntity) throws ClientErrorException {
+      this.webTarget.request(new String[]{"application/json"}).post(Entity.entity(requestEntity, "application/json"));
+   }
+
+   public void create_TEXT(Object requestEntity) throws ClientErrorException {
+      this.webTarget.request(new String[]{"text/plain"}).post(Entity.entity(requestEntity, "text/plain"));
+   }
+
+   public <T> T findAll_XML(GenericType<T> responseType) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      return resource.request(new String[]{"application/xml"}).get(responseType);
+   }
+
+   public <T> T findAll_JSON(Class<T> responseType) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      return resource.request(new String[]{"application/json"}).get(responseType);
+   }
+
+   public <T> T findAll_TEXT(Class<T> responseType) throws ClientErrorException {
+      WebTarget resource = this.webTarget;
+      return resource.request(new String[]{"text/plain"}).get(responseType);
+   }
+
+   public void remove(String id) throws ClientErrorException {
+      this.webTarget.path(MessageFormat.format("{0}", id)).request().delete();
+   }
+
+   public void close() {
+      this.client.close();
+   }
+}

@@ -98,6 +98,7 @@ public class Cita implements Serializable {
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
+
     @XmlTransient
     public Factura getFactura() {
         return factura;

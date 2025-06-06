@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -109,6 +110,7 @@ public class Factura implements Serializable {
         return idCita;
     }
 
+    
     public void setIdCita(Cita idCita) {
         this.idCita = idCita;
     }
