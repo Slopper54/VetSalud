@@ -3,8 +3,52 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        
+        <!-- Acción para crear una cita -->
+        <action name="crearCita" class="actions.CitaAction" method="crear">
+            <result name="success">/listarCitas.jsp</result>
+            <result name="input">/crearCita.jsp</result>
+        </action>
+
+        <!-- Acción para editar una cita -->
+        <action name="editarCita" class="actions.CitaAction" method="editar">
+            <result name="success">/listarCitas.jsp</result>
+            <result name="input">/editarCita.jsp</result>
+        </action>
+
+        <!-- Acción para eliminar una cita -->
+        <action name="eliminarCita" class="actions.CitaAction" method="eliminar">
+            <result name="success">/listarCitas.jsp</result>
+        </action>
+
+        <!-- Acción para listar todas las citas -->
+        <action name="listarCitas" class="actions.CitaAction" method="listar">
+            <result>/listarCitas.jsp</result>
+        </action>
+        
+        <!-- actions Dueno -->
+        <action name="crearDueno" class="actions.DuenoAction" method="crear">
+            <result name="success">/listarDuenos.jsp</result>
+            <result name="input">/crearDueno.jsp</result>
+        </action>
+
+        <action name="editarDueno" class="actions.DuenoAction" method="editar">
+            <result name="success">/listarDuenos.jsp</result>
+            <result name="input">/editarDueno.jsp</result>
+        </action>
+
+        <action name="eliminarDueno" class="actions.DuenoAction" method="eliminar">
+            <result name="success">/listarDuenos.jsp</result>
+        </action>
+
+        <action name="listarDuenos" class="actions.DuenoAction" method="listar">
+            <result>/listarDuenos.jsp</result>
+        </action>
+        
+        
         <action name="listarHistoriasClinicas" class="actions.HistoriaClinicaAction" method="listarHistoriasClinicas">
             <result name="success">/listarHistorias.jsp</result>
         </action>
@@ -96,9 +140,11 @@
         <action name="filtrarVeterinario" class="actions.VeterinarioAction" method="filter">
             <result name="success">/Veterinario.jsp</result>
             <result name="error">/error.jsp</result>
-            >>>>>>> origin/main
+
         </action>
+
     </package>
     
     
 </struts>
+
