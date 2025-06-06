@@ -1,0 +1,30 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--  Configuration for the default package.  -->
+    <package name="default" extends="struts-default">
+        <action name="createTratamiento" class="actions.TratamientoAction" method="crearTratamiento">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="actualizarTratamiento" class="actions.TratamientoAction" method="actualizarTratamiento">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="eliminarTratamiento" class="actions.TratamientoAction" method="eliminarTratamiento">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="listTratamiento" class="actions.TratamientoAction" method="listarTratamientos">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="obtenerTratamiento" class="actions.TratamientoAction" method="obtenerTratamiento">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+    </package>
+</struts>
