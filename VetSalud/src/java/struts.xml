@@ -4,47 +4,49 @@
 
 <struts>
     <package name="default" extends="struts-default">
+        <!-- Tratamiento -->
         <action name="createTratamiento" class="actions.TratamientoAction" method="crearTratamiento">
-            <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listTratamiento</result>
+            <result name="error">/crearTratamiento.jsp</result>
         </action>
+
         <action name="actualizarTratamiento" class="actions.TratamientoAction" method="actualizarTratamiento">
-            <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listTratamiento</result>
+            <result name="error">/actualizarTratamiento.jsp</result>
         </action>
+
         <action name="eliminarTratamiento" class="actions.TratamientoAction" method="eliminarTratamiento">
-            <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listTratamiento</result>
+            <result name="error" type="redirectAction">listTratamiento</result>
         </action>
+
         <action name="listTratamiento" class="actions.TratamientoAction" method="listarTratamientos">
             <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Tratamiento.jsp</result>
         </action>
-        <action name="obtenerTratamiento" class="actions.TratamientoAction" method="obtenerTratamiento">
-            <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/error.jsp</result>
-        </action>
-        
+
+
+        <!-- Vacunación -->
         <action name="createVacunacion" class="actions.VacunacionAction" method="crearVacunacion">
-            <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listVacunacion</result>
+            <result name="error">/crearVacunacion.jsp</result>
         </action>
+
         <action name="actualizarVacunacion" class="actions.VacunacionAction" method="actualizarVacunacion">
-            <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listVacunacion</result>
+            <result name="error">/actualizarVacunacion.jsp</result>
         </action>
+
         <action name="eliminarVacunacion" class="actions.VacunacionAction" method="eliminarVacunacion">
-            <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">listVacunacion</result>
+            <result name="error" type="redirectAction">listVacunacion</result>
         </action>
+
         <action name="listVacunacion" class="actions.VacunacionAction" method="listarVacunaciones">
             <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Vacunacion.jsp</result>
         </action>
-        <action name="obtenerVacunacion" class="actions.VacunacionAction" method="obtenerVacunacion">
-            <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/error.jsp</result>
-        </action>
+
         <!-- Acción para crear una cita -->
         <action name="crearCita" class="actions.CitaAction" method="crear">
             <result name="success">/listarCitas.jsp</result>
@@ -88,43 +90,42 @@
         
         
         <action name="listarHistoriasClinicas" class="actions.HistoriaClinicaAction" method="listarHistoriasClinicas">
-            <result name="success">/HistoriaClinica.jsp</result>
+            <result name="success">/listarHistorias.jsp</result>
         </action>
         <action name="obtenerHistoriaClinica" class="actions.HistoriaClinicaAction" method="obtenerHistoriaClinica">
-            <result name="success">/HistoriaClinica.jsp</result>
-            <result name="error">/HistoriaClinica.jsp</result>
+            <result name="success">/datosHistoriaClinica.jsp</result>
         </action>
         <action name="crearHistoriaClinica" class="actions.HistoriaClinicaAction" method="crearHistoriaClinica">
-            <result name="success" type="redirectAction" >/listarHistoriasClinicas</result>
-            <result name="error">/crearHistoriaClinica.jsp</result>
+            <result name="success">/prueba.jsp</result>
         </action>
         <action name="borrarHistoriaClinica" class="actions.HistoriaClinicaAction" method="eliminarHistoriaClinica">
-            <result name="success" type="redirectAction" >/listarHistoriasClinicas</result>
+            <result name="success">/prueba.jsp</result>
         </action>
         <action name="actualizarHistoriaClinica" class="actions.HistoriaClinicaAction" method="actualizarHistoriaClinica">
-            <result name="success" type="redirectAction">/listarHistoriasClinicas</result>
-            <result name="error">/actualizarHistoriaClinica.jsp</result>
+            <result name="success">/prueba.jsp</result>
         </action>
         
         
         
         <action name="listarFacturas" class="actions.FacturaAction" method="listarFacturas">
-            <result name="success">/Factura.jsp</result>
+            <result name="success">/listarFacturas.jsp</result>
         </action>
         <action name="obtenerFactura" class="actions.FacturaAction" method="obtenerFactura">
-            <result name="success">/Factura.jsp</result>
-            <result name="error">/Factura.jsp</result>
+            <result name="success">/datosFactura.jsp</result>
         </action>
         <action name="crearFactura" class="actions.FacturaAction" method="crearFactura">
-            <result name="success" type="redirectAction" >/listarFacturas</result>
-            <result name="error">/crearFactura.jsp</result>
+            <result name="success">/prueba.jsp</result>
+            <result name="error">/prueba.jsp</result>
         </action>
         <action name="borrarFactura" class="actions.FacturaAction" method="eliminarFactura">
-            <result name="success" type="redirectAction" >/listarFacturas</result>
+            <result name="success">/prueba.jsp</result>
         </action>
         <action name="actualizarFactura" class="actions.FacturaAction" method="actualizarFactura">
-            <result name="success" type="redirectAction">/listarFacturas</result>
-            <result name="error">/actualizarFactura.jsp</result>
+            <result name="success">/prueba.jsp</result>
+            <result name="error">/prueba.jsp</result>
+        </action>
+        <action name="inicio">
+            <result name="success">prueba.jsp</result>
         </action>
         
         
@@ -157,28 +158,28 @@
         
         
         <action name="createVeterinario" class="actions.VeterinarioAction" method="create">
-            <result name="success" type="redirectAction">/listVeterinario</result>
-            <result name="error">/crearVeterinario.jsp</result>
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         
         <action name="actualizarVeterinario" class="actions.VeterinarioAction" method="upgrade">
-            <result name="success" type="redirectAction">/listVeterinario</result>
-            <result name="error">/actualizarVeterinario.jsp</result>
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         
         <action name="eliminarVeterinario" class="actions.VeterinarioAction" method="delete">
-            <result name="success" type="redirectAction">/listVeterinario</result>
-            <result name="error" type="redirectAction">/listVeterinario</result>
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         
         <action name="listVeterinario" class="actions.VeterinarioAction" method="list">
-              <result name="success">/Veterinario.jsp</result>
-            <result name="error">/Veterinario.jsp</result>
+            <result name="success">/Veterinario.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         
         <action name="filtrarVeterinario" class="actions.VeterinarioAction" method="filter">
             <result name="success">/Veterinario.jsp</result>
-            <result name="error" type="redirectAction">/listVeterinario</result>
+            <result name="error">/error.jsp</result>
 
         </action>
 
