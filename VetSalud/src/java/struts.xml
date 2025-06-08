@@ -5,51 +5,56 @@
 <struts>
     <package name="default" extends="struts-default">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         <!-- Tratamiento -->
+>>>>>>> origin/main
         <action name="createTratamiento" class="actions.TratamientoAction" method="crearTratamiento">
-            <result name="success" type="redirectAction">listTratamiento</result>
-            <result name="error">/crearTratamiento.jsp</result>
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="actualizarTratamiento" class="actions.TratamientoAction" method="actualizarTratamiento">
-            <result name="success" type="redirectAction">listTratamiento</result>
-            <result name="error">/actualizarTratamiento.jsp</result>
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="eliminarTratamiento" class="actions.TratamientoAction" method="eliminarTratamiento">
-            <result name="success" type="redirectAction">listTratamiento</result>
-            <result name="error" type="redirectAction">listTratamiento</result>
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="listTratamiento" class="actions.TratamientoAction" method="listarTratamientos">
             <result name="success">/Tratamiento.jsp</result>
-            <result name="error">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
-
-        <!-- Vacunación -->
+        <action name="obtenerTratamiento" class="actions.TratamientoAction" method="obtenerTratamiento">
+            <result name="success">/Tratamiento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
         <action name="createVacunacion" class="actions.VacunacionAction" method="crearVacunacion">
-            <result name="success" type="redirectAction">listVacunacion</result>
-            <result name="error">/crearVacunacion.jsp</result>
+            <result name="success">/Vacunacion.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="actualizarVacunacion" class="actions.VacunacionAction" method="actualizarVacunacion">
-            <result name="success" type="redirectAction">listVacunacion</result>
-            <result name="error">/actualizarVacunacion.jsp</result>
+            <result name="success">/Vacunacion.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="eliminarVacunacion" class="actions.VacunacionAction" method="eliminarVacunacion">
-            <result name="success" type="redirectAction">listVacunacion</result>
-            <result name="error" type="redirectAction">listVacunacion</result>
+            <result name="success">/Vacunacion.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
         <action name="listVacunacion" class="actions.VacunacionAction" method="listarVacunaciones">
             <result name="success">/Vacunacion.jsp</result>
-            <result name="error">/Vacunacion.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
-
+        <action name="obtenerVacunacion" class="actions.VacunacionAction" method="obtenerVacunacion">
+            <result name="success">/Vacunacion.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
         <!-- Acción para crear una cita -->
         <action name="crearCita" class="actions.CitaAction" method="crear">
+<<<<<<< HEAD
+            <result name="success">/listarCitas.jsp</result>
+=======
             <result name="success">/Cita.jsp</result>
 =======
         <action name="createTratamiento" class="actions.TratamientoAction" method="crearTratamiento">
@@ -97,11 +102,16 @@
         <action name="crearCita" class="actions.CitaAction" method="crear">
             <result name="success">/listarCitas.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             <result name="input">/crearCita.jsp</result>
         </action>
 
         <!-- Acción para editar una cita -->
         <action name="editarCita" class="actions.CitaAction" method="editar">
+<<<<<<< HEAD
+            <result name="success">/listarCitas.jsp</result>
+            <result name="input">/editarCita.jsp</result>
+=======
 <<<<<<< HEAD
             <result name="success">/Cita.jsp</result>
             <result name="input">/actualizarCita.jsp</result>
@@ -109,19 +119,27 @@
             <result name="success">/listarCitas.jsp</result>
             <result name="input">/editarCita.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         </action>
 
         <!-- Acción para eliminar una cita -->
         <action name="eliminarCita" class="actions.CitaAction" method="eliminar">
 <<<<<<< HEAD
+            <result name="success">/listarCitas.jsp</result>
+=======
+<<<<<<< HEAD
             <result name="success">/Cita.jsp</result>
 =======
             <result name="success">/listarCitas.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         </action>
 
         <!-- Acción para listar todas las citas -->
         <action name="listarCitas" class="actions.CitaAction" method="listar">
+<<<<<<< HEAD
+            <result>/listarCitas.jsp</result>
+=======
 <<<<<<< HEAD
             <result>/Cita.jsp</result>
         </action>
@@ -132,30 +150,42 @@
 =======
             <result>/listarCitas.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         </action>
         
         <!-- actions Dueno -->
         <action name="crearDueno" class="actions.DuenoAction" method="crear">
 <<<<<<< HEAD
+            <result name="success">/listarDuenos.jsp</result>
+=======
+<<<<<<< HEAD
             <result name="success">/Dueno.jsp</result>
 =======
             <result name="success">/listarDuenos.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             <result name="input">/crearDueno.jsp</result>
         </action>
 
         <action name="editarDueno" class="actions.DuenoAction" method="editar">
 <<<<<<< HEAD
+            <result name="success">/listarDuenos.jsp</result>
+            <result name="input">/editarDueno.jsp</result>
+=======
+<<<<<<< HEAD
             <result name="success">/Dueno.jsp</result>
             <result name="input">/actualizarDueno.jsp</result>
+>>>>>>> origin/main
         </action>
 
         <action name="eliminarDueno" class="actions.DuenoAction" method="eliminar">
-            <result name="success" type="redirectAction">/listarDuenos</result>
-            <result name="error" type="redirectAction">/listarDuenos</result>
+            <result name="success">/listarDuenos.jsp</result>
         </action>
 
         <action name="listarDuenos" class="actions.DuenoAction" method="listar">
+<<<<<<< HEAD
+            <result>/listarDuenos.jsp</result>
+=======
             <result>/Dueno.jsp</result>
         </action>
         
@@ -174,46 +204,48 @@
         <action name="listarDuenos" class="actions.DuenoAction" method="listar">
             <result>/listarDuenos.jsp</result>
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         </action>
         
         
         <action name="listarHistoriasClinicas" class="actions.HistoriaClinicaAction" method="listarHistoriasClinicas">
-            <result name="success">/listarHistorias.jsp</result>
+            <result name="success">/HistoriaClinica.jsp</result>
         </action>
         <action name="obtenerHistoriaClinica" class="actions.HistoriaClinicaAction" method="obtenerHistoriaClinica">
-            <result name="success">/datosHistoriaClinica.jsp</result>
+            <result name="success">/HistoriaClinica.jsp</result>
+            <result name="error">/HistoriaClinica.jsp</result>
         </action>
         <action name="crearHistoriaClinica" class="actions.HistoriaClinicaAction" method="crearHistoriaClinica">
-            <result name="success">/prueba.jsp</result>
+            <result name="success" type="redirectAction" >/listarHistoriasClinicas</result>
+            <result name="error">/crearHistoriaClinica.jsp</result>
         </action>
         <action name="borrarHistoriaClinica" class="actions.HistoriaClinicaAction" method="eliminarHistoriaClinica">
-            <result name="success">/prueba.jsp</result>
+            <result name="success" type="redirectAction" >/listarHistoriasClinicas</result>
         </action>
         <action name="actualizarHistoriaClinica" class="actions.HistoriaClinicaAction" method="actualizarHistoriaClinica">
-            <result name="success">/prueba.jsp</result>
+            <result name="success" type="redirectAction">/listarHistoriasClinicas</result>
+            <result name="error">/actualizarHistoriaClinica.jsp</result>
         </action>
         
         
         
         <action name="listarFacturas" class="actions.FacturaAction" method="listarFacturas">
-            <result name="success">/listarFacturas.jsp</result>
+            <result name="success">/Factura.jsp</result>
         </action>
         <action name="obtenerFactura" class="actions.FacturaAction" method="obtenerFactura">
-            <result name="success">/datosFactura.jsp</result>
+            <result name="success">/Factura.jsp</result>
+            <result name="error">/Factura.jsp</result>
         </action>
         <action name="crearFactura" class="actions.FacturaAction" method="crearFactura">
-            <result name="success">/prueba.jsp</result>
-            <result name="error">/prueba.jsp</result>
+            <result name="success" type="redirectAction" >/listarFacturas</result>
+            <result name="error">/crearFactura.jsp</result>
         </action>
         <action name="borrarFactura" class="actions.FacturaAction" method="eliminarFactura">
-            <result name="success">/prueba.jsp</result>
+            <result name="success" type="redirectAction" >/listarFacturas</result>
         </action>
         <action name="actualizarFactura" class="actions.FacturaAction" method="actualizarFactura">
-            <result name="success">/prueba.jsp</result>
-            <result name="error">/prueba.jsp</result>
-        </action>
-        <action name="inicio">
-            <result name="success">prueba.jsp</result>
+            <result name="success" type="redirectAction">/listarFacturas</result>
+            <result name="error">/actualizarFactura.jsp</result>
         </action>
         
         

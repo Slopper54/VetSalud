@@ -15,7 +15,7 @@
         <!-- Contenido principal -->
         <div class="contenido">
             <div class="encabezado">
-                <h2 class="titulo">Actualizar Mascota con ID ${param.id}d</h2>
+                <h2 class="titulo">Actualizar Mascota con ID ${param.id}</h2>
             </div>
 
             <div class="panel">

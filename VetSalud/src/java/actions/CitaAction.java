@@ -7,9 +7,12 @@ import entidad.Mascota;
 import entidad.Veterinario;
 import java.text.SimpleDateFormat;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import java.util.ArrayList;
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.core.GenericType;
@@ -23,19 +26,26 @@ public class CitaAction extends ActionSupport {
     private int idVeterinario;
     private List<Cita> listaCitas;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     private citaWS ws = new citaWS();
     private String mensaje = "";
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 
     // -------------------
     // MÉTODO CREAR
     // -------------------
     public String crear() {
 <<<<<<< HEAD
+        citaWS ws = new citaWS();
+=======
+<<<<<<< HEAD
 =======
         citaWS ws = new citaWS();
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
             Date fechaParsed = sdf.parse(fecha);
@@ -52,15 +62,25 @@ public class CitaAction extends ActionSupport {
         } catch (Exception e) {
             e.printStackTrace();
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             mensaje = "Error al crear la cita: " + e.getMessage();
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return INPUT;
         } finally {
             ws.close();
         }
     }
 
+<<<<<<< HEAD
+    // -------------------
+    // MÉTODO EDITAR
+    // -------------------
+    public String editar() {
+        citaWS ws = new citaWS();
+=======
 <<<<<<< HEAD
 // Método EDITAR
     public String editar() {
@@ -71,6 +91,7 @@ public class CitaAction extends ActionSupport {
     public String editar() {
         citaWS ws = new citaWS();
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         try {
             Cita cita = ws.find_XML(Cita.class, String.valueOf(id));
 
@@ -88,15 +109,25 @@ public class CitaAction extends ActionSupport {
         } catch (Exception e) {
             e.printStackTrace();
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             mensaje = "Error al editar la cita: " + e.getMessage();
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return INPUT;
         } finally {
             ws.close();
         }
     }
 
+<<<<<<< HEAD
+    // -------------------
+    // MÉTODO ELIMINAR
+    // -------------------
+    public String eliminar() {
+        citaWS ws = new citaWS();
+=======
 <<<<<<< HEAD
 // Método ELIMINAR
     public String eliminar() {
@@ -107,6 +138,7 @@ public class CitaAction extends ActionSupport {
     public String eliminar() {
         citaWS ws = new citaWS();
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         try {
             ws.remove(String.valueOf(id));
             return SUCCESS;
@@ -114,9 +146,12 @@ public class CitaAction extends ActionSupport {
         } catch (Exception e) {
             e.printStackTrace();
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             mensaje = "Error al eliminar la cita: " + e.getMessage();
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return ERROR;
         } finally {
             ws.close();
@@ -124,9 +159,19 @@ public class CitaAction extends ActionSupport {
     }
 
 <<<<<<< HEAD
+    // -------------------
+    // MÉTODO LISTAR
+    // -------------------
+=======
+<<<<<<< HEAD
 // Método LISTAR
+>>>>>>> origin/main
     public String listar() {
+        citaWS ws = new citaWS();
         try {
+<<<<<<< HEAD
+            listaCitas = ws.findAll_XML(new GenericType<List<Cita>>() {});
+=======
             listaCitas = ws.findAll_XML(new GenericType<List<Cita>>() {
             });
 =======
@@ -138,10 +183,13 @@ public class CitaAction extends ActionSupport {
         try {
             listaCitas = ws.findAll_XML(new GenericType<List<Cita>>() {});
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return SUCCESS;
 
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
             mensaje = "Error al listar citas: " + e.getMessage();
             return ERROR;
@@ -163,6 +211,7 @@ public class CitaAction extends ActionSupport {
             mensaje = "Error al buscar citas: " + e.getMessage();
 =======
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return ERROR;
         } finally {
             ws.close();
@@ -173,58 +222,29 @@ public class CitaAction extends ActionSupport {
     // GETTERS y SETTERS
     // -------------------
 <<<<<<< HEAD
+    public void setId(int id) { this.id = id; }
+    public void setFecha(String fecha) { this.fecha = fecha; }
+    public void setMotivo(String motivo) { this.motivo = motivo; }
+    public void setIdMascota(int idMascota) { this.idMascota = idMascota; }
+    public void setIdVeterinario(int idVeterinario) { this.idVeterinario = idVeterinario; }
+=======
+<<<<<<< HEAD
     public void setId(int id) {
         this.id = id;
     }
+>>>>>>> origin/main
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+    public int getId() { return id; }
+    public String getFecha() { return fecha; }
+    public String getMotivo() { return motivo; }
+    public int getIdMascota() { return idMascota; }
+    public int getIdVeterinario() { return idVeterinario; }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
-
-    public void setIdMascota(int idMascota) {
-        this.idMascota = idMascota;
-    }
-
-    public void setIdVeterinario(int idVeterinario) {
-        this.idVeterinario = idVeterinario;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public int getIdMascota() {
-        return idMascota;
-    }
-
-    public int getIdVeterinario() {
-        return idVeterinario;
-    }
-
-    public List<Cita> getListaCitas() {
-        return listaCitas;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
+    public List<Cita> getListaCitas() { return listaCitas; }
 }
+<<<<<<< HEAD
+
+=======
 =======
     public void setId(int id) { this.id = id; }
     public void setFecha(String fecha) { this.fecha = fecha; }
@@ -242,3 +262,4 @@ public class CitaAction extends ActionSupport {
 }
 
 >>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
