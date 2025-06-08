@@ -3,6 +3,13 @@ package actions;
 import WS.duenoWS;
 import com.opensymphony.xwork2.ActionSupport;
 import entidad.Dueno;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 import java.util.List;
 import javax.ws.rs.core.GenericType;
 
@@ -14,12 +21,27 @@ public class DuenoAction extends ActionSupport {
     private String telefono;
     private String dni;
     private List<Dueno> listaDuenos;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    private duenoWS ws = new duenoWS();
+    private String mensaje = "";
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 
     // -------------------
     // MÉTODO CREAR
     // -------------------
     public String crear() {
+<<<<<<< HEAD
         duenoWS ws = new duenoWS();
+=======
+<<<<<<< HEAD
+=======
+        duenoWS ws = new duenoWS();
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         try {
             Dueno dueno = new Dueno();
             dueno.setNombre(nombre);
@@ -32,6 +54,13 @@ public class DuenoAction extends ActionSupport {
 
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            mensaje = "Error al crear dueño: " + e.getMessage();
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return INPUT;
 
         } finally {
@@ -43,21 +72,49 @@ public class DuenoAction extends ActionSupport {
     // MÉTODO EDITAR
     // -------------------
     public String editar() {
+<<<<<<< HEAD
         duenoWS ws = new duenoWS();
         try {
             // Buscar dueño por DNI usando el método findbyDNI
             Dueno dueno = ws.findbyDNI(Dueno.class, dni);
+=======
+<<<<<<< HEAD
+        try {
+            // Buscar dueño por DNI usando el método findbyDNI
+            Dueno dueno = ws.find_XML(Dueno.class, String.valueOf(id));
+=======
+        duenoWS ws = new duenoWS();
+        try {
+            // Buscar dueño por DNI usando el método findbyDNI
+            Dueno dueno = ws.findbyDNI(Dueno.class, dni);
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 
             dueno.setNombre(nombre);
             dueno.setTelefono(telefono);
             dueno.setEmail(email);
 
             // Actualizar usando dni como id
+<<<<<<< HEAD
             ws.editByDNI_XML(dueno, dni);
+=======
+<<<<<<< HEAD
+            ws.edit_XML(dueno, String.valueOf(id));
+=======
+            ws.editByDNI_XML(dueno, dni);
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 
             return SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            mensaje = "Error al actualizar dueño: " + e.getMessage();
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return INPUT;
         } finally {
             ws.close();
@@ -68,12 +125,28 @@ public class DuenoAction extends ActionSupport {
     // MÉTODO ELIMINAR
     // -------------------
     public String eliminar() {
+<<<<<<< HEAD
+        duenoWS ws = new duenoWS();
+=======
+<<<<<<< HEAD
+>>>>>>> origin/main
+        try {
+            ws.removeByDNI(dni);
+            return SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+<<<<<<< HEAD
+=======
+            mensaje = "Error al eliminar dueño: " + e.getMessage();
+=======
         duenoWS ws = new duenoWS();
         try {
             ws.removeByDNI(dni);
             return SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return ERROR;
         } finally {
             ws.close();
@@ -84,12 +157,46 @@ public class DuenoAction extends ActionSupport {
     // MÉTODO LISTAR
     // -------------------
     public String listar() {
+<<<<<<< HEAD
         duenoWS ws = new duenoWS();
+=======
+<<<<<<< HEAD
+=======
+        duenoWS ws = new duenoWS();
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
         try {
             listaDuenos = ws.findAll_XML(new GenericType<List<Dueno>>() {});
             return SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            mensaje = "Error al listar dueños: " + e.getMessage();
+            return ERROR;
+        } finally {
+            ws.close();
+        }
+    }
+    
+    public String buscar() {
+        try {
+            listaDuenos = new ArrayList<>();
+            Dueno dueno = ws.findbyDNI(Dueno.class, dni);
+            if(dueno == null){
+                mensaje = "Error al buscar dueño";
+                return ERROR;
+            }
+            listaDuenos.add(dueno);
+            return SUCCESS;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            mensaje = "Error al buscar dueños: " + e.getMessage();
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
             return ERROR;
         } finally {
             ws.close();
@@ -116,5 +223,16 @@ public class DuenoAction extends ActionSupport {
 
     public List<Dueno> getListaDuenos() { return listaDuenos; }
     public void setListaDuenos(List<Dueno> listaDuenos) { this.listaDuenos = listaDuenos; }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+    public String getMensaje() { return mensaje; }
+    public void setMensaje(String mensaje) { this.mensaje = mensaje; }
+    
+    
+=======
+>>>>>>> 55e1046 (Vista veterinario)
+>>>>>>> origin/main
 }
 
