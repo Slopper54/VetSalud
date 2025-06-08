@@ -66,7 +66,7 @@
   </div>
 
   <footer class="footer">
-    © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    © 2025 Clínica Veterinaria Futurista. Todos los derechos reservados.
   </footer>
 
 </body>
