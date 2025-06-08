@@ -1,13 +1,14 @@
 <%-- 
-    Document   : Mascota
-    Created on : 04-jun-2025, 13:40:20
-    Author     : samuel
+    Document   : Veterinario
+    Created on : 07-jun-2025, 18:37:32
+    Author     : Samuel
 --%>
+
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>Mascotas</title>
+        <title>Veterinario</title>
     </head>
     <body>
         <link rel="stylesheet" href="styles.css?v=2" />
@@ -15,7 +16,7 @@
             Filtrar
         </button>
         <div class="contenido">
-            <h2 class="titulo-seccion">Gestión de Mascotas</h2>
+            <h2 class="titulo-seccion">Gestión de Veterinario</h2>
 
             <div class="tabla-contenedor">
                 <table class="tabla">
@@ -23,28 +24,24 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Especie</th>
-                            <th>Raza</th>
-                            <th>Fecha Nacimiento</th>
-                            <th>Dueño</th>
+                            <th>Especialidad</th>
+                            <th>Email</th>
                             <th>Actualizar</th>
                             <th>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <s:iterator value="listaMascota" var="m">
+                        <s:iterator value="listaVeterinario" var="v">
                             <tr>
-                                <td><s:property value="#m.id" /></td>
-                                <td><s:property value="#m.nombre" /></td>
-                                <td><s:property value="#m.especie" /></td>
-                                <td><s:property value="#m.raza" /></td>
-                                <td><s:property value="#m.fechaNacimiento" /></td>
-                                <td><s:property value="#m.idDueno.nombre" /></td>
+                                <td><s:property value="#v.id" /></td>
+                                <td><s:property value="#v.nombre" /></td>
+                                <td><s:property value="#v.especialidad" /></td>
+                                <td><s:property value="#v.email" /></td>
                                 <td>
-                                    <button class="btn-accion" onclick="window.location.href = 'actualizarMascota.jsp?id=<s:property value="#m.id" />'">Actualizar</button>
+                                    <button class="btn-accion" onclick="window.location.href = 'actualizarVeterinario.jsp?id=<s:property value="#v.id" />'">Actualizar</button>
                                 </td>
                                 <td>
-                                    <button class="btn-accion btn-borrar" onclick="window.location.href = 'eliminarMascota.jsp?id=<s:property value="#m.id" />'">Borrar</button>
+                                    <button class="btn-accion btn-borrar" onclick="window.location.href = 'eliminarVeterinario.jsp?id=<s:property value="#v.id" />'">Borrar</button>
                                 </td>
                             </tr>
                         </s:iterator>
@@ -52,24 +49,24 @@
                 </table>
             </div>
             <div class="botones-acciones">
-                <s:form action="listMascota" method="post">
-                    <s:submit value="Mostrar todas las mascotas" cssClass="btn" />
+                <s:form action="listVeterinario" method="post">
+                    <s:submit value="Mostrar todos los veterinarios" cssClass="btn" />
                 </s:form>
 
-                <button class="btn" onclick="window.location.href = 'crearMascota.jsp'" >Nueva</button>
+                <button class="btn" onclick="window.location.href = 'crearVeterinario.jsp'" >Nueva</button>
             </div>
             <!-- Panel lateral -->
             <div class="sidebar">
                 <div class="sidebar-header">
-                    <h3>Filtrar Mascotas</h3>
+                    <h3>Filtrar Veterinario</h3>
                     <button class="cerrar-btn" onclick="document.querySelector('.sidebar').classList.remove('visible')">×</button>
                 </div>
 
-                <s:form action="filtrarMascota" method="post" cssClass="formulario">
-                    <s:textfield name="nombreMascota" label="Nombre" />
-                    <s:textfield name="raza" label="Raza" />
-                    <s:textfield name="especie" label="Especie" />
-                    <s:textfield name="id" label="Id de la mascota" />
+                <s:form action="filtrarVeterinario" method="post" cssClass="formulario">
+                    <s:textfield name="nombre" label="Nombre" />
+                    <s:textfield name="especialidad" label="Especialidad" />
+                    <s:textfield name="email" label="Email" />
+                    <s:textfield name="id" label="Id del veterinario" />
                     <s:submit value="Filtrar" cssClass="btn" />
                 </s:form>
             </div>
@@ -83,4 +80,3 @@
             © 2025 Clínica Veterinaria. Todos los derechos reservados.
         </footer>
 </html>
-

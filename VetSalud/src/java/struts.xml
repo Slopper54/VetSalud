@@ -156,28 +156,28 @@
         
         
         <action name="createVeterinario" class="actions.VeterinarioAction" method="create">
-            <result name="success">/Veterinario.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">/listVeterinario</result>
+            <result name="error">/crearVeterinario.jsp</result>
         </action>
         
         <action name="actualizarVeterinario" class="actions.VeterinarioAction" method="upgrade">
-            <result name="success">/Veterinario.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">/listVeterinario</result>
+            <result name="error">/actualizarVeterinario.jsp</result>
         </action>
         
         <action name="eliminarVeterinario" class="actions.VeterinarioAction" method="delete">
-            <result name="success">/Veterinario.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success" type="redirectAction">/listVeterinario</result>
+            <result name="error" type="redirectAction">/listVeterinario</result>
         </action>
         
         <action name="listVeterinario" class="actions.VeterinarioAction" method="list">
             <result name="success">/Veterinario.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Veterinario.jsp</result>
         </action>
         
         <action name="filtrarVeterinario" class="actions.VeterinarioAction" method="filter">
             <result name="success">/Veterinario.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error" type="redirectAction">/listVeterinario</result>
 
         </action>
 
