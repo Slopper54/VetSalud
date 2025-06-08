@@ -12,9 +12,10 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_iterator_var_value;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_submit_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_submit_value_cssClass_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_form_method_action;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_property_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_form_method_cssClass_action;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_textfield_name_label_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -25,17 +26,19 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_s_iterator_var_value = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_s_submit_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_s_submit_value_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_form_method_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_property_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_s_form_method_cssClass_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_textfield_name_label_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_s_iterator_var_value.release();
-    _jspx_tagPool_s_submit_value_nobody.release();
+    _jspx_tagPool_s_submit_value_cssClass_nobody.release();
     _jspx_tagPool_s_form_method_action.release();
     _jspx_tagPool_s_property_value_nobody.release();
+    _jspx_tagPool_s_form_method_cssClass_action.release();
     _jspx_tagPool_s_textfield_name_label_nobody.release();
   }
 
@@ -71,31 +74,67 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Mascotas</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"styles.css?v=2\" />\n");
+      out.write("        <button class=\"btn-lateral\" onclick=\"document.querySelector('.sidebar').classList.add('visible')\">\n");
+      out.write("            Filtrar\n");
+      out.write("        </button>\n");
+      out.write("        <div class=\"contenido\">\n");
+      out.write("            <h2 class=\"titulo-seccion\">Gestión de Mascotas</h2>\n");
       out.write("\n");
-      out.write("        <h2>Mascotas</h2>\n");
-      out.write("        <table border=\"1\">\n");
-      out.write("            <thead>\n");
-      out.write("                <tr>\n");
-      out.write("                    <th>ID</th>\n");
-      out.write("                    <th>Nombre</th>\n");
-      out.write("                    <th>Especie</th>\n");
-      out.write("                    <th>Raza</th>\n");
-      out.write("                    <th>Fecha Nacimiento</th>\n");
-      out.write("                    <th>Dueño</th>\n");
-      out.write("                </tr>\n");
-      out.write("            </thead>\n");
-      out.write("            <tbody>\n");
-      out.write("                ");
+      out.write("            <div class=\"tabla-contenedor\">\n");
+      out.write("                <table class=\"tabla\">\n");
+      out.write("                    <thead>\n");
+      out.write("                        <tr>\n");
+      out.write("                            <th>ID</th>\n");
+      out.write("                            <th>Nombre</th>\n");
+      out.write("                            <th>Especie</th>\n");
+      out.write("                            <th>Raza</th>\n");
+      out.write("                            <th>Fecha Nacimiento</th>\n");
+      out.write("                            <th>Dueño</th>\n");
+      out.write("                            <th>Actualizar</th>\n");
+      out.write("                            <th>Borrar</th>\n");
+      out.write("                        </tr>\n");
+      out.write("                    </thead>\n");
+      out.write("                    <tbody>\n");
+      out.write("                        ");
       if (_jspx_meth_s_iterator_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("            </tbody>\n");
-      out.write("        </table>\n");
-      out.write("        ");
+      out.write("                    </tbody>\n");
+      out.write("                </table>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"botones-acciones\">\n");
+      out.write("                ");
       if (_jspx_meth_s_form_0(_jspx_page_context))
         return;
       out.write("\n");
       out.write("\n");
+      out.write("                <button class=\"btn\" onclick=\"window.location.href = 'crearMascota.jsp'\" >Nueva</button>\n");
+      out.write("            </div>\n");
+      out.write("            <!-- Panel lateral -->\n");
+      out.write("            <div class=\"sidebar\">\n");
+      out.write("                <div class=\"sidebar-header\">\n");
+      out.write("                    <h3>Filtrar Mascotas</h3>\n");
+      out.write("                    <button class=\"cerrar-btn\" onclick=\"document.querySelector('.sidebar').classList.remove('visible')\">×</button>\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("                ");
+      if (_jspx_meth_s_form_1(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("            <p>");
+      if (_jspx_meth_s_property_8(_jspx_page_context))
+        return;
+      out.write("</p>\n");
+      out.write("        </div>\n");
+      out.write("        <form action=\"index.jsp\" method=\"get\" class=\"volver-form\">\n");
+      out.write("            <button type=\"submit\" class=\"btn btn-volver\">Volver</button>\n");
+      out.write("        </form>\n");
+      out.write("        <p>");
+      if (_jspx_meth_s_property_9(_jspx_page_context))
+        return;
+      out.write("</p>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
       out.write("\n");
@@ -131,39 +170,45 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       do {
         out.write("\n");
-        out.write("                    <tr>\n");
-        out.write("                        <td>");
+        out.write("                            <tr>\n");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>");
+        out.write("                                <td>");
         if (_jspx_meth_s_property_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
         out.write("</td>\n");
-        out.write("                        <td>\n");
-        out.write("                            <button onclick=\"window.location.href='actualizarMascota.jsp?id=");
+        out.write("                                <td>\n");
+        out.write("                                    <button class=\"btn-accion\" onclick=\"window.location.href = 'actualizarMascota.jsp?id=");
         if (_jspx_meth_s_property_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
           return true;
-        out.write("'\">ActualizarMascota</button>\n");
-        out.write("                        </td>\n");
-        out.write("                    </tr>\n");
-        out.write("                ");
+        out.write("'\">Actualizar</button>\n");
+        out.write("                                </td>\n");
+        out.write("                                <td>\n");
+        out.write("                                    <button class=\"btn-accion btn-borrar\" onclick=\"window.location.href = 'eliminarMascota.jsp?id=");
+        if (_jspx_meth_s_property_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_iterator_0, _jspx_page_context))
+          return true;
+        out.write("'\">Borrar</button>\n");
+        out.write("                                </td>\n");
+        out.write("                            </tr>\n");
+        out.write("                        ");
         int evalDoAfterBody = _jspx_th_s_iterator_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -277,7 +322,7 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.struts2.views.jsp.PropertyTag _jspx_th_s_property_5 = (org.apache.struts2.views.jsp.PropertyTag) _jspx_tagPool_s_property_value_nobody.get(org.apache.struts2.views.jsp.PropertyTag.class);
     _jspx_th_s_property_5.setPageContext(_jspx_page_context);
     _jspx_th_s_property_5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_iterator_0);
-    _jspx_th_s_property_5.setValue("#m.idDueno.id");
+    _jspx_th_s_property_5.setValue("#m.idDueno.nombre");
     int _jspx_eval_s_property_5 = _jspx_th_s_property_5.doStartTag();
     if (_jspx_th_s_property_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_5);
@@ -305,6 +350,24 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_s_property_7(javax.servlet.jsp.tagext.JspTag _jspx_th_s_iterator_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  s:property
+    org.apache.struts2.views.jsp.PropertyTag _jspx_th_s_property_7 = (org.apache.struts2.views.jsp.PropertyTag) _jspx_tagPool_s_property_value_nobody.get(org.apache.struts2.views.jsp.PropertyTag.class);
+    _jspx_th_s_property_7.setPageContext(_jspx_page_context);
+    _jspx_th_s_property_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_iterator_0);
+    _jspx_th_s_property_7.setValue("#m.id");
+    int _jspx_eval_s_property_7 = _jspx_th_s_property_7.doStartTag();
+    if (_jspx_th_s_property_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_7);
+      return true;
+    }
+    _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_7);
+    return false;
+  }
+
   private boolean _jspx_meth_s_form_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -313,7 +376,7 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.struts2.views.jsp.ui.FormTag _jspx_th_s_form_0 = (org.apache.struts2.views.jsp.ui.FormTag) _jspx_tagPool_s_form_method_action.get(org.apache.struts2.views.jsp.ui.FormTag.class);
     _jspx_th_s_form_0.setPageContext(_jspx_page_context);
     _jspx_th_s_form_0.setParent(null);
-    _jspx_th_s_form_0.setAction("filtrarMascota");
+    _jspx_th_s_form_0.setAction("listMascota");
     _jspx_th_s_form_0.setMethod("post");
     int _jspx_eval_s_form_0 = _jspx_th_s_form_0.doStartTag();
     if (_jspx_eval_s_form_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -324,28 +387,11 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       do {
         out.write("\n");
-        out.write("            ");
-        if (_jspx_meth_s_textfield_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_0, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("            ");
-        if (_jspx_meth_s_textfield_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_0, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("            ");
-        if (_jspx_meth_s_textfield_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_0, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("            ");
-        if (_jspx_meth_s_textfield_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_0, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("\n");
-        out.write("            ");
+        out.write("                    ");
         if (_jspx_meth_s_submit_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_0, _jspx_page_context))
           return true;
         out.write("\n");
-        out.write("        ");
+        out.write("                ");
         int evalDoAfterBody = _jspx_th_s_form_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -361,14 +407,89 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_s_textfield_0(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_s_submit_0(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  s:submit
+    org.apache.struts2.views.jsp.ui.SubmitTag _jspx_th_s_submit_0 = (org.apache.struts2.views.jsp.ui.SubmitTag) _jspx_tagPool_s_submit_value_cssClass_nobody.get(org.apache.struts2.views.jsp.ui.SubmitTag.class);
+    _jspx_th_s_submit_0.setPageContext(_jspx_page_context);
+    _jspx_th_s_submit_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
+    _jspx_th_s_submit_0.setValue("Mostrar todas las mascotas");
+    _jspx_th_s_submit_0.setCssClass("btn");
+    int _jspx_eval_s_submit_0 = _jspx_th_s_submit_0.doStartTag();
+    if (_jspx_th_s_submit_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_submit_value_cssClass_nobody.reuse(_jspx_th_s_submit_0);
+      return true;
+    }
+    _jspx_tagPool_s_submit_value_cssClass_nobody.reuse(_jspx_th_s_submit_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_s_form_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  s:form
+    org.apache.struts2.views.jsp.ui.FormTag _jspx_th_s_form_1 = (org.apache.struts2.views.jsp.ui.FormTag) _jspx_tagPool_s_form_method_cssClass_action.get(org.apache.struts2.views.jsp.ui.FormTag.class);
+    _jspx_th_s_form_1.setPageContext(_jspx_page_context);
+    _jspx_th_s_form_1.setParent(null);
+    _jspx_th_s_form_1.setAction("filtrarMascota");
+    _jspx_th_s_form_1.setMethod("post");
+    _jspx_th_s_form_1.setCssClass("formulario");
+    int _jspx_eval_s_form_1 = _jspx_th_s_form_1.doStartTag();
+    if (_jspx_eval_s_form_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      if (_jspx_eval_s_form_1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+        out = _jspx_page_context.pushBody();
+        _jspx_th_s_form_1.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+        _jspx_th_s_form_1.doInitBody();
+      }
+      do {
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_s_textfield_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_1, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_s_textfield_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_1, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_s_textfield_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_1, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_s_textfield_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_1, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_s_submit_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_s_form_1, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_s_form_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+      if (_jspx_eval_s_form_1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
+        out = _jspx_page_context.popBody();
+    }
+    if (_jspx_th_s_form_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_form_method_cssClass_action.reuse(_jspx_th_s_form_1);
+      return true;
+    }
+    _jspx_tagPool_s_form_method_cssClass_action.reuse(_jspx_th_s_form_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_s_textfield_0(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  s:textfield
     org.apache.struts2.views.jsp.ui.TextFieldTag _jspx_th_s_textfield_0 = (org.apache.struts2.views.jsp.ui.TextFieldTag) _jspx_tagPool_s_textfield_name_label_nobody.get(org.apache.struts2.views.jsp.ui.TextFieldTag.class);
     _jspx_th_s_textfield_0.setPageContext(_jspx_page_context);
-    _jspx_th_s_textfield_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
+    _jspx_th_s_textfield_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_1);
     _jspx_th_s_textfield_0.setName("nombreMascota");
     _jspx_th_s_textfield_0.setLabel("Nombre");
     int _jspx_eval_s_textfield_0 = _jspx_th_s_textfield_0.doStartTag();
@@ -380,14 +501,14 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_s_textfield_1(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_s_textfield_1(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  s:textfield
     org.apache.struts2.views.jsp.ui.TextFieldTag _jspx_th_s_textfield_1 = (org.apache.struts2.views.jsp.ui.TextFieldTag) _jspx_tagPool_s_textfield_name_label_nobody.get(org.apache.struts2.views.jsp.ui.TextFieldTag.class);
     _jspx_th_s_textfield_1.setPageContext(_jspx_page_context);
-    _jspx_th_s_textfield_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
+    _jspx_th_s_textfield_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_1);
     _jspx_th_s_textfield_1.setName("raza");
     _jspx_th_s_textfield_1.setLabel("Raza");
     int _jspx_eval_s_textfield_1 = _jspx_th_s_textfield_1.doStartTag();
@@ -399,14 +520,14 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_s_textfield_2(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_s_textfield_2(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  s:textfield
     org.apache.struts2.views.jsp.ui.TextFieldTag _jspx_th_s_textfield_2 = (org.apache.struts2.views.jsp.ui.TextFieldTag) _jspx_tagPool_s_textfield_name_label_nobody.get(org.apache.struts2.views.jsp.ui.TextFieldTag.class);
     _jspx_th_s_textfield_2.setPageContext(_jspx_page_context);
-    _jspx_th_s_textfield_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
+    _jspx_th_s_textfield_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_1);
     _jspx_th_s_textfield_2.setName("especie");
     _jspx_th_s_textfield_2.setLabel("Especie");
     int _jspx_eval_s_textfield_2 = _jspx_th_s_textfield_2.doStartTag();
@@ -418,14 +539,14 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_s_textfield_3(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_s_textfield_3(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  s:textfield
     org.apache.struts2.views.jsp.ui.TextFieldTag _jspx_th_s_textfield_3 = (org.apache.struts2.views.jsp.ui.TextFieldTag) _jspx_tagPool_s_textfield_name_label_nobody.get(org.apache.struts2.views.jsp.ui.TextFieldTag.class);
     _jspx_th_s_textfield_3.setPageContext(_jspx_page_context);
-    _jspx_th_s_textfield_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
+    _jspx_th_s_textfield_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_1);
     _jspx_th_s_textfield_3.setName("id");
     _jspx_th_s_textfield_3.setLabel("Id de la mascota");
     int _jspx_eval_s_textfield_3 = _jspx_th_s_textfield_3.doStartTag();
@@ -437,21 +558,58 @@ public final class Mascota_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_s_submit_0(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_s_submit_1(javax.servlet.jsp.tagext.JspTag _jspx_th_s_form_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  s:submit
-    org.apache.struts2.views.jsp.ui.SubmitTag _jspx_th_s_submit_0 = (org.apache.struts2.views.jsp.ui.SubmitTag) _jspx_tagPool_s_submit_value_nobody.get(org.apache.struts2.views.jsp.ui.SubmitTag.class);
-    _jspx_th_s_submit_0.setPageContext(_jspx_page_context);
-    _jspx_th_s_submit_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_0);
-    _jspx_th_s_submit_0.setValue("filtrar Mascotas");
-    int _jspx_eval_s_submit_0 = _jspx_th_s_submit_0.doStartTag();
-    if (_jspx_th_s_submit_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_s_submit_value_nobody.reuse(_jspx_th_s_submit_0);
+    org.apache.struts2.views.jsp.ui.SubmitTag _jspx_th_s_submit_1 = (org.apache.struts2.views.jsp.ui.SubmitTag) _jspx_tagPool_s_submit_value_cssClass_nobody.get(org.apache.struts2.views.jsp.ui.SubmitTag.class);
+    _jspx_th_s_submit_1.setPageContext(_jspx_page_context);
+    _jspx_th_s_submit_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_s_form_1);
+    _jspx_th_s_submit_1.setValue("Filtrar");
+    _jspx_th_s_submit_1.setCssClass("btn");
+    int _jspx_eval_s_submit_1 = _jspx_th_s_submit_1.doStartTag();
+    if (_jspx_th_s_submit_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_submit_value_cssClass_nobody.reuse(_jspx_th_s_submit_1);
       return true;
     }
-    _jspx_tagPool_s_submit_value_nobody.reuse(_jspx_th_s_submit_0);
+    _jspx_tagPool_s_submit_value_cssClass_nobody.reuse(_jspx_th_s_submit_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_s_property_8(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  s:property
+    org.apache.struts2.views.jsp.PropertyTag _jspx_th_s_property_8 = (org.apache.struts2.views.jsp.PropertyTag) _jspx_tagPool_s_property_value_nobody.get(org.apache.struts2.views.jsp.PropertyTag.class);
+    _jspx_th_s_property_8.setPageContext(_jspx_page_context);
+    _jspx_th_s_property_8.setParent(null);
+    _jspx_th_s_property_8.setValue("mensaje");
+    int _jspx_eval_s_property_8 = _jspx_th_s_property_8.doStartTag();
+    if (_jspx_th_s_property_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_8);
+      return true;
+    }
+    _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_8);
+    return false;
+  }
+
+  private boolean _jspx_meth_s_property_9(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  s:property
+    org.apache.struts2.views.jsp.PropertyTag _jspx_th_s_property_9 = (org.apache.struts2.views.jsp.PropertyTag) _jspx_tagPool_s_property_value_nobody.get(org.apache.struts2.views.jsp.PropertyTag.class);
+    _jspx_th_s_property_9.setPageContext(_jspx_page_context);
+    _jspx_th_s_property_9.setParent(null);
+    _jspx_th_s_property_9.setValue("mensaje");
+    int _jspx_eval_s_property_9 = _jspx_th_s_property_9.doStartTag();
+    if (_jspx_th_s_property_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_9);
+      return true;
+    }
+    _jspx_tagPool_s_property_value_nobody.reuse(_jspx_th_s_property_9);
     return false;
   }
 }
