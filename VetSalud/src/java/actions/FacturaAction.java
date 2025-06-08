@@ -15,6 +15,7 @@ import entidad.Factura;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.core.GenericType;
@@ -37,7 +38,7 @@ public class FacturaAction extends ActionSupport {
     private String metodoPago;
     private Cita idCita;
     private String identificadorCita;
-    private String citaAsignada = "";
+    private String mensaje = "";
 
     public FacturaAction() {
 
@@ -51,13 +52,16 @@ public class FacturaAction extends ActionSupport {
 
     public String obtenerFactura() {
 
+        listarFacturas();
         factura = ws.find_XML(Factura.class, String.valueOf(id));
-
         if (factura == null) {
+            mensaje = "No hay facturas con ese ID";
             return ERROR;
-        } else {
-            return SUCCESS;
         }
+        listaFacturas = new ArrayList<Factura>();
+        listaFacturas.add(factura);
+
+        return SUCCESS;
     }
 
     public String obtenerSizeLista() {
@@ -74,6 +78,7 @@ public class FacturaAction extends ActionSupport {
             try {
                 fechaEmision = new SimpleDateFormat("yyyy-MM-dd").parse(fechaInput);
             } catch (ParseException ex) {
+                mensaje = "Error en el formato de la fecha";
                 return ERROR;
             }
 
@@ -82,20 +87,36 @@ public class FacturaAction extends ActionSupport {
             }
             if (total != null) {
                 factura.setTotal(total);
+            } else {
+                mensaje = "Total obligatorio";
+                return ERROR;
             }
             if (metodoPago != null && !metodoPago.isEmpty()) {
                 factura.setMetodoPago(metodoPago);
+            } else {
+                mensaje = "Metodo de pago obligatorio";
+                return ERROR;
             }
 
-            idCita = citaWS.find_XML(Cita.class, identificadorCita);
-            try {
-                Factura f = ws.findByIdCita(Factura.class, identificadorCita);
-                citaAsignada = "La cita ya se ha asignado a otra factura";
+            if (identificadorCita != null && !identificadorCita.isEmpty()) {
+                idCita = citaWS.find_XML(Cita.class, identificadorCita);
+                if (idCita == null) {
+                    mensaje = "No hay citas con ese ID";
+                    return ERROR;
+                }
+                try {
+                    Factura f = ws.findByIdCita(Factura.class, identificadorCita);
+                    mensaje = "La cita ya se ha asignado a otra factura";
+                    return ERROR;
+                } catch (Exception e) {
+                    mensaje = "";
+                    factura.setIdCita(idCita);
+                }
+            } else {
+                mensaje = "Identificador de cita obligatorio";
                 return ERROR;
-            } catch (Exception e) {
-                citaAsignada = "";
-                factura.setIdCita(idCita);
             }
+
             ws.create_XML(factura);
             return SUCCESS;
         } catch (Exception e) {
@@ -116,6 +137,7 @@ public class FacturaAction extends ActionSupport {
                 fechaEmision = new SimpleDateFormat("yyyy-MM-dd").parse(fechaInput);
                 factura.setFechaEmision(fechaEmision);
             } catch (ParseException ex) {
+                mensaje = "Error en el formato de la fecha";
                 return ERROR;
             }
         }
@@ -129,12 +151,16 @@ public class FacturaAction extends ActionSupport {
         }
         if (identificadorCita != null && !identificadorCita.isEmpty()) {
             idCita = citaWS.find_XML(Cita.class, identificadorCita);
+            if (idCita == null) {
+                mensaje = "No hay citas con ese ID";
+                return ERROR;
+            }
             try {
                 Factura f = ws.findByIdCita(Factura.class, identificadorCita);
-                citaAsignada = "La cita ya se ha asignado a otra factura";
+                mensaje = "La cita ya se ha asignado a otra factura";
                 return ERROR;
             } catch (Exception e) {
-                citaAsignada = "";
+                mensaje = "";
                 factura.setIdCita(idCita);
             }
         }
@@ -244,12 +270,12 @@ public class FacturaAction extends ActionSupport {
         this.identificadorCita = identificadorCita;
     }
 
-    public String getCitaAsignada() {
-        return citaAsignada;
+    public String getMensaje() {
+        return mensaje;
     }
 
-    public void setCitaAsignada(String citaAsignada) {
-        this.citaAsignada = citaAsignada;
+    public void setMensaje(String citaAsignada) {
+        this.mensaje = citaAsignada;
     }
 
 }
