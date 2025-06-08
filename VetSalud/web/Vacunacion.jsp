@@ -66,5 +66,8 @@
       <button type="submit" class="btn btn-volver">Volver</button>
     </s:form>
   </div>
+    <footer class="footer">
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

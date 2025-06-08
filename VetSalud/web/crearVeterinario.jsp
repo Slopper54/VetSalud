@@ -41,8 +41,8 @@
             <s:submit value="volver" cssClass="btn btn-volver"/>
         </s:form>
         <footer class="footer">
-            © 2025 Clínica Veterinaria. Todos los derechos reservados.
-        </footer>
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
 
     </body>
 </html>

@@ -39,13 +39,9 @@
         <s:form action="listMascota" method="post" cssClass="volver-form">
             <s:submit value="volver" cssClass="btn btn-volver"/>
         </s:form>
-        <footer class="footer">
-<<<<<<< HEAD
-            © 2025 Tu Aplicación de Mascotas
-=======
-            © 2025 Clínica Veterinaria. Todos los derechos reservados.
->>>>>>> 55e1046 (Vista veterinario)
-        </footer>
+<footer class="footer">
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
 
     </body>
 </html>

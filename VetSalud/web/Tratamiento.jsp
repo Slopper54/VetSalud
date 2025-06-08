@@ -64,7 +64,12 @@
       </button>
     </div>
     <p><s:property value="mensaje"/></p>
-    <a href="index.jsp" class="btn btn-volver volver-form">Volver</a>
+    <form action="index.jsp" method="get" class="volver-form">
+            <button type="submit" class="btn btn-volver">Volver</button>
+        </form>
   </div>
+    <footer class="footer">
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

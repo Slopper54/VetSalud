@@ -111,11 +111,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </div>\r\n");
       out.write("\r\n");
       out.write("  <footer class=\"footer\">\r\n");
-<<<<<<< HEAD
-      out.write("    © 2025 Clínica Veterinaria Futurista. Todos los derechos reservados.\r\n");
-=======
       out.write("    © 2025 Clínica Veterinaria. Todos los derechos reservados.\r\n");
->>>>>>> origin/main
       out.write("  </footer>\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");

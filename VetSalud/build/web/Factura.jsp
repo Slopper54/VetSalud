@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>Mascotas</title>
+        <title>Facturas</title>
     </head>
     <body>
         <link rel="stylesheet" href="styles.css?v=2" />
@@ -74,5 +74,8 @@
         <form action="index.jsp" method="get" class="volver-form">
             <button type="submit" class="btn btn-volver">Volver</button>
         </form>
+        <footer class="footer">
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
     </body>
 </html>

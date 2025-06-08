@@ -27,5 +27,8 @@
     <p><s:property value="mensaje"/></p>
     <s:form action="listarTratamientos" method="post" class="volver-form"><s:submit value="Volver" cssClass="btn btn-volver"/></s:form>
   </div>
+  <footer class="footer">
+        © 2025 Clínica Veterinaria. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

@@ -66,15 +66,7 @@
   </div>
 
   <footer class="footer">
-<<<<<<< HEAD
     © 2025 Clínica Veterinaria. Todos los derechos reservados.
-=======
-<<<<<<< HEAD
-    © 2025 Clínica Veterinaria Futurista. Todos los derechos reservados.
-=======
-    © 2025 Clínica Veterinaria. Todos los derechos reservados.
->>>>>>> 55e1046 (Vista veterinario)
->>>>>>> origin/main
   </footer>
 
 </body>
