@@ -91,7 +91,7 @@
             <result name="error">/Duenos.jsp</result>
         </action>        
         <action name="buscarDueno" class="actions.CitaAction" method="buscar">
-            <result name="success">/Dueno.jsp</result>
+            <result name="success">/newjsp.jsp</result>
             <result name="error" type="redirectAction">/listarDuenos</result>
         </action>
         

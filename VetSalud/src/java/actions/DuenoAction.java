@@ -15,6 +15,7 @@ public class DuenoAction extends ActionSupport {
     private String telefono;
     private String dni;
     private List<Dueno> listaDuenos;
+    
 
     private duenoWS ws = new duenoWS();
     private String mensaje = "";
@@ -115,13 +116,14 @@ public class DuenoAction extends ActionSupport {
     }
     
     public String buscar() {
+
         try {
-            listaDuenos = new ArrayList<>();
             Dueno dueno = ws.find_XML(Dueno.class,String.valueOf(id) );
             if(dueno == null){
                 mensaje = "Error al buscar dueño";
                 return ERROR;
             }
+            listaDuenos = new ArrayList<>();
             listaDuenos.add(dueno);
             return SUCCESS;
 
@@ -157,6 +159,14 @@ public class DuenoAction extends ActionSupport {
 
     public String getMensaje() { return mensaje; }
     public void setMensaje(String mensaje) { this.mensaje = mensaje; }
+
+    public duenoWS getWs() {
+        return ws;
+    }
+
+    public void setWs(duenoWS ws) {
+        this.ws = ws;
+    }
     
 }
 

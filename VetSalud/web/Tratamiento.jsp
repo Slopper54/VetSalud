@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
+    <button class="btn-lateral" onclick="document.querySelector('.sidebar').classList.add('visible')">
+            Buscar
+        </button>
   <div class="contenido">
     <h2 class="titulo-seccion">Gestión de Tratamientos</h2>
     <div class="tabla-contenedor">
