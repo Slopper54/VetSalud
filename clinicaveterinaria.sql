@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2025 a las 15:25:20
+-- Tiempo de generación: 08-06-2025 a las 19:28:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -11,9 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE IF EXISTS clinicaveterinaria;
-CREATE DATABASE clinicaveterinaria;
-USE clinicaveterinaria;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -22,6 +20,8 @@ USE clinicaveterinaria;
 --
 -- Base de datos: `clinicaveterinaria`
 --
+CREATE DATABASE IF NOT EXISTS `clinicaveterinaria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `clinicaveterinaria`;
 
 -- --------------------------------------------------------
 
@@ -46,8 +46,8 @@ INSERT INTO `cita` (`id`, `fecha`, `motivo`, `id_mascota`, `id_veterinario`) VAL
 (2, '2025-05-11 10:30:00', 'Control dermatológico', 2, 3),
 (3, '2025-05-12 11:15:00', 'Chequeo general', 3, 2),
 (4, '2025-05-13 16:00:00', 'Problema dental', 4, 4),
-(5, '2025-05-14 13:45:00', 'Control de peso', 5, 5),
-(6, '2025-05-15 14:00:00', 'Consulta de comportamiento', 2, 4);
+(5, '2025-05-14 13:45:00', 'Control de peso', 5, 5);
+
 
 -- --------------------------------------------------------
 
@@ -68,11 +68,12 @@ CREATE TABLE `dueno` (
 --
 
 INSERT INTO `dueno` (`id`, `nombre`, `email`, `telefono`, `DNI`) VALUES
-(1, 'Pepe Martínez', 'pepe.martinez@gmail.com', '600123456', '39678349F'),
+(1, 'Pepe Martínez', 'pepe.martinez@gmail.com', '643719896', '39678349F'),
 (2, 'Laura Gómez', 'laura.gomez@gmail.com', '689123456', '45678123T'),
 (3, 'Carlos Pérez', 'carlos.perez@gmail.com', '677891234', '34562987Z'),
 (4, 'Ana Martínez', 'ana.martinez@gmail.com', '666987321', '78125644L'),
 (5, 'Jorge Rivera', 'jorge.rivera@gmail.com', '695456789', '12034567X');
+
 
 -- --------------------------------------------------------
 
@@ -97,8 +98,8 @@ INSERT INTO `factura` (`id`, `fecha_emision`, `total`, `metodo_pago`, `id_cita`)
 (2, '2025-05-11', 60.50, 'Tarjeta', 2),
 (3, '2025-05-12', 40.00, 'Transferencia', 3),
 (4, '2025-05-13', 85.75, 'Tarjeta', 4),
-(5, '2025-05-14', 35.00, 'Efectivo', 5),
-(7, '2003-12-12', 23.00, 'Tarjeta', 6);
+(5, '2025-05-14', 35.00, 'Efectivo', 5);
+
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,7 @@ CREATE TABLE `historiaclinica` (
 --
 
 INSERT INTO `historiaclinica` (`id`, `fecha`, `resumen`, `id_mascota`) VALUES
+(1, '2025-05-11', 'Alto sobrepeso, se inicia una dieta.', 1),
 (2, '2025-05-11', 'Dermatitis tratada con antibióticos.', 2),
 (3, '2025-05-12', 'Ligero sobrepeso, se recomienda dieta.', 3),
 (4, '2025-05-13', 'Extracción dental realizada sin complicaciones.', 4),
@@ -147,10 +149,8 @@ INSERT INTO `mascota` (`id`, `nombre`, `especie`, `raza`, `fecha_nacimiento`, `i
 (2, 'Milo', 'Gato', 'Persa', '2019-09-23', 2),
 (3, 'Rocky', 'Perro', 'Bulldog', '2021-01-15', 3),
 (4, 'Nina', 'Gato', 'Siamés', '2018-03-04', 4),
-(5, 'Toby', 'Conejo', 'Enano', '2022-07-30', 5),
-(7, 'Pipo', 'perro', 'beagle', '2015-12-01', 4),
-(8, 'prueba', 'perro', 'Labrador', '2024-03-01', 4),
-(9, 'prueba', 'perro', 'Labrador', '2024-03-01', 4);
+(5, 'Toby', 'Conejo', 'Enano', '2022-07-30', 5);
+
 
 -- --------------------------------------------------------
 
@@ -172,8 +172,8 @@ CREATE TABLE `tratamiento` (
 --
 
 INSERT INTO `tratamiento` (`id`, `descripcion`, `medicamento`, `fecha_inicio`, `fecha_fin`, `id_mascota`) VALUES
-(1, 'prueba', '', '2025-05-10', '2025-05-15', 1),
-(2, 'l', '', '2025-05-11', '2025-05-17', 2),
+(1, 'Antibiótico para infección', 'Amoxicilina', '2025-05-10', '2025-05-15', 1),
+(2, 'Control de dolor post-cirugía', 'Meloxicam', '2025-05-11', '2025-05-13', 2),
 (3, 'Desinflamatorio', 'Carprofeno', '2025-05-12', '2025-05-14', 3),
 (4, 'Anestesia local pre-extracción', 'Isofluorano', '2025-05-13', '2025-05-13', 4),
 (5, 'Vitaminas post-esterilización', 'Complejo B', '2025-05-14', '2025-05-20', 5);
@@ -294,7 +294,7 @@ ALTER TABLE `veterinario`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `dueno`
@@ -306,7 +306,7 @@ ALTER TABLE `dueno`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `historiaclinica`
@@ -318,13 +318,13 @@ ALTER TABLE `historiaclinica`
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunacion`
@@ -336,7 +336,7 @@ ALTER TABLE `vacunacion`
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
