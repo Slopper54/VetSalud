@@ -13,6 +13,7 @@ import entidad.Historiaclinica;
 import entidad.Mascota;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,7 +36,8 @@ public class HistoriaClinicaAction extends ActionSupport {
     private String fechaInput;
     private String resumen;
     private Mascota idMascota;
-    private int identificadorMascota;
+    private String identificadorMascota;
+    private String mensaje;
 
     public HistoriaClinicaAction() {
 
@@ -48,13 +50,18 @@ public class HistoriaClinicaAction extends ActionSupport {
     }
 
     public String obtenerHistoriaClinica() {
+        listarHistoriasClinicas();
         historiaClinica = ws.find_XML(Historiaclinica.class, String.valueOf(id));
 
         if (historiaClinica == null) {
+            mensaje = "No hay historias clínicas con ese ID";
             return ERROR;
-        } else {
-            return SUCCESS;
         }
+        
+        listaHistoriasClinicas = new ArrayList<Historiaclinica>();
+        listaHistoriasClinicas.add(historiaClinica);
+        return SUCCESS;
+
     }
 
     public String obtenerSizeLista() {
@@ -69,6 +76,7 @@ public class HistoriaClinicaAction extends ActionSupport {
         try {
             fecha = new SimpleDateFormat("yyyy-MM-dd").parse(fechaInput);
         } catch (ParseException ex) {
+            mensaje = "Error en el formato de la fecha";
             return ERROR;
         }
 
@@ -78,10 +86,22 @@ public class HistoriaClinicaAction extends ActionSupport {
 
         if (resumen != null && !resumen.isEmpty()) {
             historiaClinica.setResumen(resumen);
+        } else {
+            mensaje = "Campo Resumen obligatorio";
+            return ERROR;
         }
-        idMascota = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(identificadorMascota));
-        if (idMascota != null) {
-            historiaClinica.setIdMascota(idMascota);
+        if (identificadorMascota != null && !identificadorMascota.isEmpty()) {
+            idMascota = mascotaWS.find(new GenericType<Mascota>() {
+            }, identificadorMascota);
+            if (idMascota != null) {
+                historiaClinica.setIdMascota(idMascota);
+            } else {
+                mensaje = "No hay mascotas con ese ID";
+                return ERROR;
+            }
+        } else {
+            mensaje = "Campo Id de la mascota obligatorio";
+            return ERROR;
         }
         ws.create_XML(historiaClinica);
         return SUCCESS;
@@ -89,17 +109,14 @@ public class HistoriaClinicaAction extends ActionSupport {
 
     public String actualizarHistoriaClinica() {
 
-        if (id == 0) {
-            return ERROR;
-        }
-
         obtenerHistoriaClinica();
 
-        if (fechaInput != null) {
+        if (fechaInput != null && !fechaInput.isEmpty()) {
             try {
                 fecha = new SimpleDateFormat("yyyy-MM-dd").parse(fechaInput);
                 historiaClinica.setFecha(fecha);
             } catch (ParseException ex) {
+                mensaje = "Error en el formato de la fecha";
                 return ERROR;
             }
         }
@@ -108,8 +125,13 @@ public class HistoriaClinicaAction extends ActionSupport {
             historiaClinica.setResumen(resumen);
         }
 
-        if (identificadorMascota != 0) {
-            idMascota = mascotaWS.find(new GenericType<Mascota>() {}, String.valueOf(identificadorMascota));
+        if (identificadorMascota != null && !identificadorMascota.isEmpty()) {
+            idMascota = mascotaWS.find(new GenericType<Mascota>() {
+            }, identificadorMascota);
+            if (idMascota == null) {
+                mensaje = "No hay mascotas con ese ID";
+                return ERROR;
+            }
             historiaClinica.setIdMascota(idMascota);
         }
 
@@ -204,12 +226,20 @@ public class HistoriaClinicaAction extends ActionSupport {
         this.fechaInput = fechaInput;
     }
 
-    public int getIdentificadorMascota() {
+    public String getIdentificadorMascota() {
         return identificadorMascota;
     }
 
-    public void setIdentificadorMascota(int identificadorMascota) {
+    public void setIdentificadorMascota(String identificadorMascota) {
         this.identificadorMascota = identificadorMascota;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
 }
