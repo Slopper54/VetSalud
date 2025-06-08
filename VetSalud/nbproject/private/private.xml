@@ -3,10 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/danie/Documents/VetSalud-main/VetSalud/src/java/actions/HistoriaClinicaAction.java</file>
-            <file>file:/C:/Users/danie/Documents/VetSalud-main/VetSalud/web/HistoriaClinica.jsp</file>
-            <file>file:/C:/Users/danie/Documents/VetSalud-main/VetSalud/src/java/actions/FacturaAction.java</file>
-            <file>file:/C:/Users/danie/Documents/VetSalud-main/VetSalud/web/Factura.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/eliminarVacunacion.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/actions/MascotaAction.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/eliminarMascota.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/index.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/eliminarTratamiento.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/entidad/Mascota.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/actualizarTratamiento.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/Vacunacion.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/crearTratamiento.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/Tratamiento.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/actualizarMascota.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/actions/TratamientoAction.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/entidad/Tratamiento.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/WS/citaWS.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/crearVacunacion.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/WS/mascotaWS.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/struts.xml</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/actualizarVacunacion.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/crearMascota.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/actions/VacunacionAction.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/web/Mascota.jsp</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/entidad/Vacunacion.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/WS/vacunacionWS.java</file>
+            <file>file:/C:/Users/domin/Desktop/VetSalud-main/VetSalud-main/VetSalud/src/java/WS/tratamientoWS.java</file>
         </group>
     </open-files>
 </project-private>
